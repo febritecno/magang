@@ -104,33 +104,21 @@
               </a>
             </li>
             <li class="treeview">
-              <a href="#" >
-                <i class="fa fa-plane"></i>
-                <span>New Task</span>
-              </a>
-            </li>
-            <li class="treeview">
-              <a href="#" >
-                <i class="fa fa-ticket"></i>
-                <span>My Tasks</span>
+              <a href="<?php echo base_url(); ?>product">
+                <i class="fa fa-archive"></i>
+                <span>Products</span>
               </a>
             </li>
             <?php
             if($role == ROLE_ADMIN || $role == ROLE_MANAGER)
             {
             ?>
-            <li class="treeview">
+            <!-- <li class="treeview">
               <a href="#" >
                 <i class="fa fa-thumb-tack"></i>
                 <span>Task Status</span>
               </a>
-            </li>
-            <li class="treeview">
-              <a href="#" >
-                <i class="fa fa-upload"></i>
-                <span>Task Uploads</span>
-              </a>
-            </li>
+            </li> -->
             <?php
             }
             if($role == ROLE_ADMIN)
@@ -140,12 +128,6 @@
               <a href="<?php echo base_url(); ?>userListing">
                 <i class="fa fa-users"></i>
                 <span>Users</span>
-              </a>
-            </li>
-            <li class="treeview">
-              <a href="#" >
-                <i class="fa fa-files-o"></i>
-                <span>Reports</span>
               </a>
             </li>
             <?php
