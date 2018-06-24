@@ -368,7 +368,7 @@
                         <div class="portfolio-item" id="item" data-groups='["all", "<?php echo $k->catagory;?>"]'>
                           <div class="card" id="card">
                             <div class="card-image waves-effect waves-block waves-light">
-                              <img class="activator" src="http://vollrath.com/ClientCss/images/VollrathImages/No_Image_Available.jpg" alt="image">
+                              <img style="height: 200px!important;width: 350px!important;" class="activator" src="<?php echo base_url('assets/product/'.$k->img);?>" alt="garudainformatics">
                             </div>
                             <div class="card-content">
                               <span class="card-title activator"><?php echo $k->name; ?> <i class="fa fa-ellipsis-v right"></i></span>

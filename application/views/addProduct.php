@@ -20,7 +20,7 @@
                     </div><!-- /.box-header -->
                     <!-- form start -->
                     <?php $this->load->helper("form"); ?>
-                    <form role="form" id="addProduct" action="<?php echo base_url() ?>Product/addProductSave" method="post" role="form" enctype="multipart/form-data">
+                    <form id="addProduct" action="<?php echo base_url() ?>Product/addProductSave" method="post" role="form" enctype="multipart/form-data">
                         <div class="box-body">
                             <div class="row">
                                 <div class="col-md-8">                                
@@ -45,7 +45,7 @@
                                 <div class="col-md-8">                                
                                     <div class="form-group">
                                         <label for="img">Upload Image</label>
-                                        <input type="file" class="form-control required" name="img"></input>
+                                        <input type="file" class="form-control" name="img"></input>
                                     </div>
                                     
                                 </div>

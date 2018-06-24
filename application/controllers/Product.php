@@ -88,14 +88,39 @@ class Product extends BaseController
             }
             else
             {   
+//upload
+                $fileData = array();
+                $config['upload_path']          = './assets/product';
+                $config['allowed_types']        = 'gif|jpg|png';
+                $config['overwrite']            = TRUE;
+                $config['max_size']             = 2000;
+                $config['max_width']            = 1024;
+                $config['max_height']           = 768;
+
+                $this->load->library('upload', $config);
+
+            
+                if ($this->upload->do_upload('img')) {
+
+                $data = $this->upload->data(); // Get the file data
+                $fileData[] = $data; // It's an array with many data
+                // Interate throught the data to work with them
+                foreach ($fileData as $file) {
+                    $file_data = $file;
+                    }
+                }else{
+                    $this->session->set_flashdata('error', 'Error Upload! size file too large , please resize');
+                }
+
+                var_dump($file_data);
+//
 
                 $name = ucwords(strtolower($this->security->xss_clean($this->input->post('name'))));
                 $desc = $this->security->xss_clean($this->input->post('desc'));
                 $catagory = $this->input->post('catagory');
+                $img= $file_data['file_name'];
 
-                //kurang upload img ;{ hiks.....
-
-                $save = array('name'=>$name, 'desc'=>$desc, 'catagory'=>$catagory );
+                $save = array('name'=>$name, 'desc'=>$desc, 'img' =>$img, 'catagory'=>$catagory );
 
                 $this->load->model('product_model');
                 $result = $this->product_model->add($save);
@@ -116,9 +141,10 @@ class Product extends BaseController
     }
 
 
+
     public function editProduct($id=Null)
     {
-        if($this->isAdmin() == TRUE || $id == 1)
+        if($this->isAdmin() == TRUE || $id == 0)
         {
             $this->loadThis();
         }
@@ -149,6 +175,33 @@ class Product extends BaseController
 
             $id = $this->input->post('id');
             
+//upload
+                $fileData = array();
+                $config['upload_path']          = './assets/product';
+                $config['allowed_types']        = 'gif|jpg|png';
+                $config['overwrite']            = TRUE;
+                $config['max_size']             = 800;
+                $config['min_width']            = 350;
+                $config['min_height']           = 200;
+
+                $this->load->library('upload', $config);
+
+            
+                if ($this->upload->do_upload('img')) {
+
+                $data = $this->upload->data(); // Get the file data
+                $fileData[] = $data; // It's an array with many data
+                // Interate throught the data to work with them
+                foreach ($fileData as $file) {
+                    $file_data = $file;
+                    }
+                }else{
+                    $this->session->set_flashdata('error', 'Error Upload! size file too large , please resize');
+                }
+
+                var_dump($file_data);
+//
+
             
             $this->form_validation->set_rules('name','Product title','trim|required|max_length[128]');
             $this->form_validation->set_rules('desc','Desc','trim|required|max_length[500]');
@@ -165,10 +218,10 @@ class Product extends BaseController
                 $name = ucwords(strtolower($this->security->xss_clean($this->input->post('name'))));
                 $desc = $this->security->xss_clean($this->input->post('desc'));
                 $catagory = $this->input->post('catagory');
+                $img= $file_data['file_name'];
 
-                //kurang upload img ;{ hiks.....
 
-                $save = array('name'=>$name, 'desc'=>$desc, 'catagory'=>$catagory );
+                $save = array('name'=>$name, 'desc'=>$desc, 'img'=> $img ,'catagory'=>$catagory );
     
 
                 $this->load->model('product_model');

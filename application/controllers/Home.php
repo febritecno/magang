@@ -31,8 +31,9 @@ class Home extends BaseController
 
     }
 
-    public function send()
+    public function sendemail()
     {
+
     }
 
 
