@@ -18,7 +18,6 @@ class Home extends BaseController
     {
         parent::__construct();
         $this->load->database();
-        $this->load->model('product_model');
     }
     
     /**
@@ -26,14 +25,14 @@ class Home extends BaseController
      */
     public function index()
     {   
-       // $query = $this->db->query("SELECT * FROM tbl_product ORDER BY createtime DESC limit $offset,$limit");
-       // $data['kolom']=$query->result();
-       // $this->load->view('home',$data);
-        $page=$GET['page'];
-        $data['kolom'] = $this->product_model->getpage($page);
-        $this->load->view('home',$data);
+       $query = $this->db->query("SELECT * FROM tbl_product ORDER BY createtime DESC");
+       $data['kolom']=$query->result();
+       $this->load->view('home',$data);
 
+    }
 
+    public function send()
+    {
     }
 
 

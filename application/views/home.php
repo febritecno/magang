@@ -71,12 +71,6 @@
           }
         </style>
 
-        <!-- RS5.0 Main Stylesheet -->
-        <link rel="stylesheet" type="text/css" href="<?php echo base_url(); ?>assets/home/assets/revolution/css/settings.css">
-        <!-- RS5.0 Layers and Navigation Styles -->
-        <link rel="stylesheet" type="text/css" href="<?php echo base_url(); ?>assets/home/assets/revolution/css/layers.css">
-        <link rel="stylesheet" type="text/css" href="<?php echo base_url(); ?>assets/home/assets/revolution/css/navigation.css">
-
         <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
         <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
         <!--[if lt IE 9]>
@@ -393,10 +387,11 @@
                       ?>
 
                   </div>
-                  <div class="load-more-button text-center" id= "tombol">
-                    <a class="waves-effect waves-light btn btn-large pink"> <i class="fa fa-spinner left"></i> Load More</a>
-                  </div>
 
+           <!--        <div class="load-more-button text-center">
+                    <a class="waves-effect waves-light btn btn-large pink" id="tombol"> <i class="fa fa-spinner left"></i> Load More</a>
+                  </div>
+ -->
 
               </div>
             </div>
@@ -524,9 +519,6 @@
                   <ul class="social-link tt-animate ltr mt-20">
                     <li><a href="#"><i class="fa fa-facebook"></i></a></li>
                     <li><a href="#"><i class="fa fa-twitter"></i></a></li>
-                    <li><a href="#"><i class="fa fa-tumblr"></i></a></li>
-                    <li><a href="#"><i class="fa fa-linkedin"></i></a></li>
-                    <li><a href="#"><i class="fa fa-dribbble"></i></a></li>
                     <li><a href="#"><i class="fa fa-instagram"></i></a></li>
                   </ul>
 
@@ -571,35 +563,6 @@
         <script src="<?php echo base_url(); ?>assets/home/js/bootstrap-tabcollapse.min.js"></script>
         <script src="<?php echo base_url(); ?>assets/home/magnific-popup/jquery.magnific-popup.min.js"></script>
         <script src="<?php echo base_url(); ?>assets/home/js/scripts.js"></script>
-        
-
-        <script>
-        $(document).ready(function(){
-            getcountry(0);
-              $("#tombol").click(function(e){
-              e.preventDefault();
-              var page = $(this).data('val');
-              load(page);
-              });
-            });
-            var load = function(page){
-            $("#item").show();
-            $.ajax({
-            url:"<?php echo base_url() ?>home",
-            type:'GET',
-            data: {page:page}
-            }).done(function(response){
-            $("#card").append(response);
-            $("#item").hide();
-            $('#tombol').data('val', ($('#tombol').data('val')+1));
-            scroll();
-            });
-            };
-            var scroll  = function(){
-            $('html, body').animate({
-            scrollTop: $('#tombol').offset().top
-            }, 1000);
-        };
-        </script>
+      
 
 </html>

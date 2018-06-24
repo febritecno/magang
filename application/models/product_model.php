@@ -89,15 +89,6 @@ class Product_model extends CI_Model
         return $query->num_rows();
     }
 
-    function getpage($page)
-    {
-        $offset = 10*$page;
-        $limit = 10;
-        $sql = "select * from tbl_product ORDER BY createtime DESC limit $offset ,$limit";
-        $result = $this->db->query($sql)->result();
-        return $result;
-    }
-
 }
 
   
