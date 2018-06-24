@@ -13,7 +13,7 @@
               <!-- small box -->
               <div class="small-box bg-aqua">
                 <div class="inner">
-                  <h3>150</h3>
+                  <h3><?php echo $all; ?></h3>
                   <p>Total Product</p>
                 </div>
                 <div class="icon">
@@ -25,7 +25,7 @@
               <!-- small box -->
               <div class="small-box bg-green">
                 <div class="inner">
-                  <h3>53<sup style="font-size: 20px">%</sup></h3>
+                  <h3><?php echo $web; ?></h3>
                   <p>Websites</p>
                 </div>
                 <div class="icon">
@@ -37,7 +37,7 @@
               <!-- small box -->
               <div class="small-box bg-yellow">
                 <div class="inner">
-                  <h3>44</h3>
+                  <h3><?php echo $desktop; ?></h3>
                   <p>Desktop App</p>
                 </div>
                 <div class="icon">
@@ -49,7 +49,7 @@
               <!-- small box -->
               <div class="small-box bg-red">
                 <div class="inner">
-                  <h3>65</h3>
+                  <h3><?php echo $mobile; ?></h3>
                   <p>Mobile App</p>
                 </div>
                 <div class="icon">

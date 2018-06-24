@@ -19,7 +19,8 @@ class Product extends BaseController
         parent::__construct();
         $this->isLoggedIn();
         $this->load->model('product_model');
-        $this->load->library('pagination');
+        $this->load->library('form_validation');
+            
     }
     
     /**
@@ -37,9 +38,11 @@ class Product extends BaseController
             $searchText = $this->security->xss_clean($this->input->post('searchText'));
             $data['searchText'] = $searchText;
             
+            $this->load->library('pagination');
+
             $count = $this->product_model->productcount($searchText);
 
-            $returns = $this->paginationCompress ( "product/", $count, 10);
+            $returns = $this->paginationCompress ( "product/", $count, 1000000);
             
             $data['productRecords'] = $this->product_model->productlisting($searchText, $returns["page"], $returns["segment"]);
 
@@ -74,11 +77,9 @@ class Product extends BaseController
         }
         else
         {
-            $this->load->library('form_validation');
-            
             $this->form_validation->set_rules('name','Product title','trim|required|max_length[128]');
             $this->form_validation->set_rules('desc','Desc','trim|required|max_length[500]');
-            // $this->form_validation->set_rules('img','Upload Image','required|max_length[128]');
+            $this->form_validation->set_rules('img','Upload Image');
             $this->form_validation->set_rules('catagory','Catagory Product','trim|required');
             
             if($this->form_validation->run() == FALSE)
@@ -87,10 +88,12 @@ class Product extends BaseController
             }
             else
             {   
+
                 $name = ucwords(strtolower($this->security->xss_clean($this->input->post('name'))));
                 $desc = $this->security->xss_clean($this->input->post('desc'));
-                // $img = $this->input->post('img');
                 $catagory = $this->input->post('catagory');
+
+                //kurang upload img ;{ hiks.....
 
                 $save = array('name'=>$name, 'desc'=>$desc, 'catagory'=>$catagory );
 
@@ -112,18 +115,24 @@ class Product extends BaseController
         }
     }
 
-    public function editProduct()
+
+    public function editProduct($id=Null)
     {
-        if($this->isAdmin() == TRUE)
+        if($this->isAdmin() == TRUE || $id == 1)
         {
             $this->loadThis();
         }
         else
         {
+            if($id == null)
+            {
+                redirect('Product');
+            }
+            $data['userInfo'] = $this->product_model->info($id);
             
             $this->global['pageTitle'] = 'Garuda Informatics : Add New Product';
 
-            $this->loadViews("editProduct", $this->global, null, NULL);
+            $this->loadViews("editProduct", $this->global, $data, NULL);
         }
     }
 
@@ -136,8 +145,49 @@ class Product extends BaseController
         }
         else
         {
+            $this->load->library('form_validation');
+
+            $id = $this->input->post('id');
             
+            
+            $this->form_validation->set_rules('name','Product title','trim|required|max_length[128]');
+            $this->form_validation->set_rules('desc','Desc','trim|required|max_length[500]');
+            $this->form_validation->set_rules('img','Upload Image');
+            $this->form_validation->set_rules('catagory','Catagory Product','trim|required');
+            
+            if($this->form_validation->run() == FALSE)
+            {
+                $this->editProduct($id);
+            }
+            else
+            {   
+
+                $name = ucwords(strtolower($this->security->xss_clean($this->input->post('name'))));
+                $desc = $this->security->xss_clean($this->input->post('desc'));
+                $catagory = $this->input->post('catagory');
+
+                //kurang upload img ;{ hiks.....
+
+                $save = array('name'=>$name, 'desc'=>$desc, 'catagory'=>$catagory );
+    
+
+                $this->load->model('product_model');
+                $result = $this->product_model->editsave($id,$save);
+
+                
+                if($result > 0)
+                {
+                    $this->session->set_flashdata('success', 'Update Product Creation successfully');
+                }
+                else
+                {
+                    $this->session->set_flashdata('error', 'Update Product creation failed');
+                }
+                
+                redirect('/product/editProduct/'.$id);
+            }
         }
+
     }
 
     public function deleteproduct()

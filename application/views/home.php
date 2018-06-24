@@ -361,128 +361,43 @@
               <div class="portfolio-container">
                   <ul class="portfolio-filter text-center brand-filter">
                       <li class="active waves-effect waves-light" data-group="all">All</li>
-                      <li class="waves-effect waves-light" data-group="websites">Websites</li>
-                      <li class="waves-effect waves-light" data-group="desktop">Desktop App</li>
-                      <li class="waves-effect waves-light" data-group="Mobile">Mobile App</li>
+                      <li class="waves-effect waves-light" data-group="Websites">Websites</li>
+                      <li class="waves-effect waves-light" data-group="Desktop App">Desktop App</li>
+                      <li class="waves-effect waves-light" data-group="Mobile App">Mobile App</li>
                   </ul>
 
 
                   <div class="portfolio portfolio-with-title col-3 gutter mtb-50">
-                        <div class="portfolio-item" data-groups='["all", "desktop"]'>
-                          <div class="card">
+                        
+                      <?php foreach ($kolom as $k) {
+                      ?>
+                        <div class="portfolio-item" id="item" data-groups='["all", "<?php echo $k->catagory;?>"]'>
+                          <div class="card" id="card">
                             <div class="card-image waves-effect waves-block waves-light">
-                              <img class="activator" src="assets/img/portfolio/portfolio-1.jpg" alt="image">
+                              <img class="activator" src="http://vollrath.com/ClientCss/images/VollrathImages/No_Image_Available.jpg" alt="image">
                             </div>
                             <div class="card-content">
-                              <span class="card-title activator">Standard Portfolio Title <i class="fa fa-ellipsis-v right"></i> <i class="fa fa-heart-o right"></i></span>
-                              <p><a href="#">Photography</a></p>
+                              <span class="card-title activator"><?php echo $k->name; ?> <i class="fa fa-ellipsis-v right"></i></span>
+                              <p><a href="#"><?php echo $k->catagory;?></a></p>
                             </div>
                             <div class="card-reveal">
-                              <span class="card-title">Standard Portfolio Title <i class="material-icons right">&#xE5CD;</i></span>
-                              <p><a href="#">Photography</a></p>
-                              <p>Authoritatively grow quality technologies for strategic sources. Dramatically evolve front-end services for functional e-markets. Credibly parallel task multifunctional methods.</p>
-                              <a href="#" class="readmore">View full project</a>
+                              <span class="card-title"><?php echo $k->name; ?> <i class="material-icons right">&#xE5CD;</i></span>
+                              <p><a href="#"><?php echo $k->catagory; ?></a></p>
+                              <p><?php echo $k->desc; ?></p>
+                              <!-- <a href="#" class="readmore">View full project</a> -->
                             </div>
                           </div>
                         </div>
+                      <?php
+                        }
+                      ?>
 
-                        <div class="portfolio-item" data-groups='["all", "branding", "marketing"]'>
-
-                          <div class="card">
-                            <div class="card-image waves-effect waves-block waves-light">
-                              <img class="activator" src="assets/img/portfolio/portfolio-2.jpg" alt="image">
-                            </div>
-                            <div class="card-content">
-                              <span class="card-title activator">Standard Portfolio Title <i class="fa fa-ellipsis-v right"></i> <i class="fa fa-heart-o right"></i></span>
-                              <p><a href="#">Website</a></p>
-                            </div>
-                            <div class="card-reveal">
-                              <span class="card-title">Standard Portfolio Title <i class="material-icons right">&#xE5CD;</i></span>
-                              <p><a href="#">Website</a></p>
-                              <p>Authoritatively grow quality technologies for strategic sources. Dramatically evolve front-end services for functional e-markets. Credibly parallel task multifunctional methods.</p>
-                              <a href="#" class="readmore">View full project</a>
-                            </div>
-                          </div><!-- /.card -->
-                        </div><!-- /.portfolio-item -->
-
-                        <div class="portfolio-item" data-groups='["all", "websites", "branding"]'>
-
-                          <div class="card">
-                            <div class="card-image waves-effect waves-block waves-light">
-                              <img class="activator" src="assets/img/portfolio/portfolio-3.jpg" alt="image">
-                            </div>
-                            <div class="card-content">
-                              <span class="card-title activator">Standard Portfolio Title <i class="fa fa-ellipsis-v right"></i> <i class="fa fa-heart-o right"></i></span>
-                              <p><a href="#">Material Design</a></p>
-                            </div>
-                            <div class="card-reveal">
-                              <span class="card-title">Standard Portfolio Title <i class="material-icons right">&#xE5CD;</i></span>
-                              <p><a href="#">Material Design</a></p>
-                              <p>Authoritatively grow quality technologies for strategic sources. Dramatically evolve front-end services for functional e-markets. Credibly parallel task multifunctional methods.</p>
-                              <a href="#" class="readmore">View full project</a>
-                            </div>
-                          </div><!-- /.card -->
-                        </div><!-- /.portfolio-item -->
-
-                        <div class="portfolio-item" data-groups='["all", "websites", "photography", "marketing"]'>
-
-                          <div class="card">
-                            <div class="card-image waves-effect waves-block waves-light">
-                              <img class="activator" src="assets/img/portfolio/portfolio-4.jpg" alt="image">
-                            </div>
-                            <div class="card-content">
-                              <span class="card-title activator">Standard Portfolio Title <i class="fa fa-ellipsis-v right"></i> <i class="fa fa-heart-o right"></i></span>
-                              <p><a href="#">UX Design</a></p>
-                            </div>
-                            <div class="card-reveal">
-                              <span class="card-title">Standard Portfolio Title <i class="material-icons right">&#xE5CD;</i></span>
-                              <p><a href="#">UX Design</a></p>
-                              <p>Authoritatively grow quality technologies for strategic sources. Dramatically evolve front-end services for functional e-markets. Credibly parallel task multifunctional methods.</p>
-                              <a href="#" class="readmore">View full project</a>
-                            </div>
-                          </div><!-- /.card -->
-                        </div><!-- /.portfolio-item -->
-
-                        <div class="portfolio-item" data-groups='["all", "websites",  "photography"]'>
-
-                          <div class="card">
-                            <div class="card-image waves-effect waves-block waves-light">
-                              <img class="activator" src="assets/img/portfolio/portfolio-5.jpg" alt="image">
-                            </div>
-                            <div class="card-content">
-                              <span class="card-title activator">Standard Portfolio Title <i class="fa fa-ellipsis-v right"></i> <i class="fa fa-heart-o right"></i></span>
-                              <p><a href="#">UI Design</a></p>
-                            </div>
-                            <div class="card-reveal">
-                              <span class="card-title">Standard Portfolio Title <i class="material-icons right">&#xE5CD;</i></span>
-                              <p><a href="#">UI Design</a></p>
-                              <p>Authoritatively grow quality technologies for strategic sources. Dramatically evolve front-end services for functional e-markets. Credibly parallel task multifunctional methods.</p>
-                              <a href="#" class="readmore">View full project</a>
-                            </div>
-                          </div><!-- /.card -->
-                        </div><!-- /.portfolio-item -->
-
-                        <div class="portfolio-item" data-groups='["all", "marketing", "photography"]'>
-                          <div class="card">
-                            <div class="card-image waves-effect waves-block waves-light">
-                              <img class="activator" src="assets/img/portfolio/portfolio-6.jpg" alt="image">
-                            </div>
-                            <div class="card-content">
-                              <span class="card-title activator">Standard Portfolio Title <i class="fa fa-ellipsis-v right"></i> <i class="fa fa-heart-o right"></i></span>
-                              <p><a href="#">Marketing</a></p>
-                            </div>
-                            <div class="card-reveal">
-                              <span class="card-title">Standard Portfolio Title <i class="material-icons right">&#xE5CD;</i></span>
-                              <p><a href="#">Marketing</a></p>
-                              <p>Authoritatively grow quality technologies for strategic sources. Dramatically evolve front-end services for functional e-markets. Credibly parallel task multifunctional methods.</p>
-                              <a href="#" class="readmore">View full project</a>
-                            </div>
-                          </div>
-                        </div>
                   </div>
-                  <div class="load-more-button text-center">
+                  <div class="load-more-button text-center" id= "tombol">
                     <a class="waves-effect waves-light btn btn-large pink"> <i class="fa fa-spinner left"></i> Load More</a>
                   </div>
+
+
               </div>
             </div>
         </section>
@@ -656,6 +571,35 @@
         <script src="<?php echo base_url(); ?>assets/home/js/bootstrap-tabcollapse.min.js"></script>
         <script src="<?php echo base_url(); ?>assets/home/magnific-popup/jquery.magnific-popup.min.js"></script>
         <script src="<?php echo base_url(); ?>assets/home/js/scripts.js"></script>
+        
 
+        <script>
+        $(document).ready(function(){
+            getcountry(0);
+              $("#tombol").click(function(e){
+              e.preventDefault();
+              var page = $(this).data('val');
+              load(page);
+              });
+            });
+            var load = function(page){
+            $("#item").show();
+            $.ajax({
+            url:"<?php echo base_url() ?>home",
+            type:'GET',
+            data: {page:page}
+            }).done(function(response){
+            $("#card").append(response);
+            $("#item").hide();
+            $('#tombol').data('val', ($('#tombol').data('val')+1));
+            scroll();
+            });
+            };
+            var scroll  = function(){
+            $('html, body').animate({
+            scrollTop: $('#tombol').offset().top
+            }, 1000);
+        };
+        </script>
 
 </html>

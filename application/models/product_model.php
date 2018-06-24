@@ -55,6 +55,49 @@ class Product_model extends CI_Model
     return $save;
     }
 
+
+    function info($id)
+    {
+        $this->db->select('id, name, desc, catagory');
+        $this->db->from('tbl_product');
+        $this->db->where('id', $id);
+        $query = $this->db->get();
+        
+        return $query->result();
+    }
+
+    function editsave($id,$save)
+    {
+
+    $this->db->where('id', $id);
+
+    $this->db->update('tbl_product', $save);
+
+    return TRUE; 
+    }
+
+    function count($data)
+    {
+        $this->db->where('catagory',$data);
+        $query = $this->db->get('tbl_product');
+        return $query->num_rows();
+    }
+
+    function countall()
+    {
+        $query = $this->db->get('tbl_product');
+        return $query->num_rows();
+    }
+
+    function getpage($page)
+    {
+        $offset = 10*$page;
+        $limit = 10;
+        $sql = "select * from tbl_product ORDER BY createtime DESC limit $offset ,$limit";
+        $result = $this->db->query($sql)->result();
+        return $result;
+    }
+
 }
 
   

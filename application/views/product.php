@@ -50,12 +50,12 @@
                     <tr>
                       <td><?php echo $record->id ;?></td>
                       <td><?php echo wordwrap($record->name,20,"<br>\n",TRUE) ;?></td>
-                      <td><?php echo wordwrap((strlen($record->desc)>=20)?substr($record->desc,0,10):$record->desc,20,"<br>\n",TRUE)." ..." ;?></td>
+                      <td><?php echo wordwrap((strlen($record->desc)>=30)?substr($record->desc,0,20):$record->desc,15,"<br>\n",TRUE)." ..." ;?></td>
                       <td><?php echo $record->img ;?></td>
                       <td><?php echo $record->catagory ;?></td>
                   
                       <td class="text-center"> 
-                          <a class="btn btn-sm btn-info" href="<?php echo base_url().'editProduct/'.$record->id; ?>" title="Edit"><i class="fa fa-pencil"></i></a>
+                          <a class="btn btn-sm btn-info" href="<?php echo base_url().'product/editProduct/'.$record->id; ?>" title="Edit"><i class="fa fa-pencil"></i></a>
                           <a class="btn btn-sm btn-danger" href="<?php echo base_url().'product/deleteproduct/'.$record->id; ?>" title="Delete"><i class="fa fa-trash"></i></a>
                       </td>
                     </tr>
