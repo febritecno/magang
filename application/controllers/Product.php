@@ -251,12 +251,12 @@ class Product extends BaseController
         {
             $id = $this->uri->segment(3);
             $this->db->where('id',$id);
-            $query = $this->db->get('tbl_product','img');
-            unlink("./assets/product/".$query);
-            $proses = $this->product_model->deleteProduct($id);
-            if(!$proses) 
+            $query = $this->db->get('tbl_product')->row();
+            unlink(realpath('assets/product/'.$query->img));
+            if($query) 
             {
                 $this->session->set_flashdata('success', 'Delete operation successfully');
+                $this->product_model->deleteProduct($id);
                 redirect('product');
             } else {
                 $this->session->set_flashdata('error', 'Error delete operation');
