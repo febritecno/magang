@@ -37,8 +37,8 @@ class Product_model extends CI_Model
     }
 
     function deleteProduct($id)
-    {
-        $this->db->where('id', $id);
+    {   
+        $this->db->where('id',$id);
         $this->db->delete('tbl_product');
     }
 
@@ -58,7 +58,7 @@ class Product_model extends CI_Model
 
     function info($id)
     {
-        $this->db->select('id, name, desc, catagory');
+        $this->db->select('id, name, desc, img,catagory');
         $this->db->from('tbl_product');
         $this->db->where('id', $id);
         $query = $this->db->get();

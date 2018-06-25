@@ -55,7 +55,7 @@ class User extends BaseController
             
             $count = $this->user_model->userListingCount($searchText);
 
-			$returns = $this->paginationCompress ( "userListing/", $count, 20 );
+			$returns = $this->paginationCompress ( "userListing/", $count, 5 );
             
             $data['userRecords'] = $this->user_model->userListing($searchText, $returns["page"], $returns["segment"]);
             

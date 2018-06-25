@@ -20,6 +20,7 @@ class Product extends BaseController
         $this->isLoggedIn();
         $this->load->model('product_model');
         $this->load->library('form_validation');
+        $this->load->database();
             
     }
     
@@ -42,7 +43,7 @@ class Product extends BaseController
 
             $count = $this->product_model->productcount($searchText);
 
-            $returns = $this->paginationCompress ( "product/", $count, 1000000);
+            $returns = $this->paginationCompress ( "product/index/", $count, 5,3);
             
             $data['productRecords'] = $this->product_model->productlisting($searchText, $returns["page"], $returns["segment"]);
 
@@ -88,14 +89,14 @@ class Product extends BaseController
             }
             else
             {   
-//upload
+//upload --------------------------------------
                 $fileData = array();
                 $config['upload_path']          = './assets/product';
                 $config['allowed_types']        = 'gif|jpg|png';
                 $config['overwrite']            = TRUE;
-                $config['max_size']             = 2000;
-                $config['max_width']            = 1024;
-                $config['max_height']           = 768;
+                $config['max_size']             = 800;
+                $config['min_width']            = 350;
+                $config['min_height']           = 200;
 
                 $this->load->library('upload', $config);
 
@@ -109,21 +110,19 @@ class Product extends BaseController
                     $file_data = $file;
                     }
                 }else{
-                    $this->session->set_flashdata('error', 'Error Upload! size file too large , please resize');
+                    $this->session->set_flashdata('error', 'Error Upload! please input image');
                 }
-
-                var_dump($file_data);
-//
+//------------------------------
 
                 $name = ucwords(strtolower($this->security->xss_clean($this->input->post('name'))));
-                $desc = $this->security->xss_clean($this->input->post('desc'));
+                $desc = $this->security->xss_clean($this->input->post('desc')); //save from name tag html
                 $catagory = $this->input->post('catagory');
-                $img= $file_data['file_name'];
+                $img= $file_data['file_name']; //save to database filename upload image
 
-                $save = array('name'=>$name, 'desc'=>$desc, 'img' =>$img, 'catagory'=>$catagory );
+                $save = array('name'=>$name, 'desc'=>$desc, 'img' =>$img, 'catagory'=>$catagory ); //kumpul data
 
                 $this->load->model('product_model');
-                $result = $this->product_model->add($save);
+                $result = $this->product_model->add($save); //setor ke model terus di save
 
                 
                 if($result > 0)
@@ -142,7 +141,7 @@ class Product extends BaseController
 
 
 
-    public function editProduct($id=Null)
+    public function editProduct($id=Null) //id=kosong
     {
         if($this->isAdmin() == TRUE || $id == 0)
         {
@@ -175,7 +174,7 @@ class Product extends BaseController
 
             $id = $this->input->post('id');
             
-//upload
+//upload------------------------------------
                 $fileData = array();
                 $config['upload_path']          = './assets/product';
                 $config['allowed_types']        = 'gif|jpg|png';
@@ -196,11 +195,10 @@ class Product extends BaseController
                     $file_data = $file;
                     }
                 }else{
-                    $this->session->set_flashdata('error', 'Error Upload! size file too large , please resize');
+                    $this->session->set_flashdata('error', 'Error Upload! please input image');
+                    redirect('/product');
                 }
-
-                var_dump($file_data);
-//
+//-------------------------------
 
             
             $this->form_validation->set_rules('name','Product title','trim|required|max_length[128]');
@@ -210,7 +208,7 @@ class Product extends BaseController
             
             if($this->form_validation->run() == FALSE)
             {
-                $this->editProduct($id);
+                redirect('/product');
             }
             else
             {   
@@ -221,7 +219,7 @@ class Product extends BaseController
                 $img= $file_data['file_name'];
 
 
-                $save = array('name'=>$name, 'desc'=>$desc, 'img'=> $img ,'catagory'=>$catagory );
+                $save = array('name'=>$name, 'desc'=>$desc, 'img'=>$img,'catagory'=>$catagory );
     
 
                 $this->load->model('product_model');
@@ -237,7 +235,7 @@ class Product extends BaseController
                     $this->session->set_flashdata('error', 'Update Product creation failed');
                 }
                 
-                redirect('/product/editProduct/'.$id);
+                redirect('/product');
             }
         }
 
@@ -252,13 +250,17 @@ class Product extends BaseController
         else
         {
             $id = $this->uri->segment(3);
+            $this->db->where('id',$id);
+            $query = $this->db->get('tbl_product','img');
+            unlink("./assets/product/".$query);
             $proses = $this->product_model->deleteProduct($id);
             if(!$proses) 
             {
+                $this->session->set_flashdata('success', 'Delete operation successfully');
                 redirect('product');
             } else {
-                redirect('product','refresh');
-                echo "<script>alert('Ooopss!!');</script>";
+                $this->session->set_flashdata('error', 'Error delete operation');
+                redirect('product');
             }
         }
     }
