@@ -14,7 +14,7 @@
               <div class="small-box bg-aqua">
                 <div class="inner">
                   <h3><?php echo $all; ?></h3>
-                  <p>Total Product</p>
+                  <p>Total Products</p>
                 </div>
                 <div class="icon">
                   <i class="ion ion-cube"></i>

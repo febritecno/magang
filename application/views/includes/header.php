@@ -110,6 +110,12 @@
                 <span>Products</span>
               </a>
             </li>
+             <li class="treeview">
+              <a href="<?php echo base_url(); ?>kontak">
+                <i class="fa fa-phone"></i>
+                <span>Contact</span>
+              </a>
+            </li>
             <?php
             if($role == ROLE_ADMIN || $role == ROLE_MANAGER)
             {
@@ -120,6 +126,7 @@
                 <span>Task Status</span>
               </a>
             </li> -->
+
             <?php
             }
             if($role == ROLE_ADMIN)
@@ -134,6 +141,12 @@
             <?php
             }
             ?>
+            <li class="treeview">
+              <a href="<?php echo base_url(); ?>Link">
+                <i class="fa fa-link"></i>
+                <span>Social Links</span>
+              </a>
+            </li>
           </ul>
         </section>
         <!-- /.sidebar -->
