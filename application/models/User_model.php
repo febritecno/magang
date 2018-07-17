@@ -263,6 +263,30 @@ class User_model extends CI_Model
         return $query->row();
     }
 
+
+    //information kontak & links
+
+    function links()
+    {
+        $this->db->select('*');
+        $this->db->from('tbl_link');
+        $this->db->where('id','1');
+        $query = $this->db->get();
+        
+        return $query->result();
+    }
+
+
+    function kontak()
+    {
+        $this->db->select('*');
+        $this->db->from('tbl_kontak');
+        $this->db->where('id', '1');
+        $query = $this->db->get();
+        
+        return $query->result();
+    }
+
 }
 
   

@@ -2,15 +2,15 @@
     <!-- Content Header (Page header) -->
     <section class="content-header">
       <h1>
-        <i class="fa fa-archive"></i> Product Management
-        <small>Add, Edit, Delete</small>
+        <i class="fa fa-inbox"></i> Inbox Message
+        <small>Management</small>
       </h1>
     </section>
     <section class="content">
         <div class="row">
             <div class="col-xs-12 text-right">
                 <div class="form-group">
-                    <a class="btn btn-primary" href="<?php echo base_url(); ?>addProduct"><i class="fa fa-plus"></i> Add New</a>
+                    <a class="btn btn-primary" href="<?php echo base_url(); ?>inbox/all"><i class="fa fa-cut"></i> Delete All</a>
                 </div>
             </div>
         </div>
@@ -18,9 +18,9 @@
             <div class="col-xs-12">
               <div class="box">
                 <div class="box-header">
-                    <h3 class="box-title">Product List</h3>
+                    <h3 class="box-title">Inbox Listing</h3>
                     <div class="box-tools">
-                        <form action="<?php echo base_url() ?>product/" method="POST" id="searchList">
+                        <form action="<?php echo base_url() ?>inbox/" method="POST" id="searchList">
                             <div class="input-group">
                              <input type="text" name="searchText" value="<?php echo $searchText; ?>" class="form-control input-sm pull-right" style="width: 150px;" placeholder="Search"/>
                               <div class="input-group-btn">
@@ -33,11 +33,11 @@
                 <div class="box-body table-responsive no-padding">
                   <table class="table table-hover">
                     <tr>
-                      <th>Id</th>
                       <th>Name</th>
-                      <th>Description</th>
-                      <th>Image</th>
-                      <th>Catagory</th>
+                      <th>Email</th>
+                      <th>Phone</th>
+                      <th>Site</th>
+                      <th>Message</th>
                       <th class="text-center">Actions</th>
                     </tr>
 
@@ -48,15 +48,14 @@
                         {
                     ?>
                     <tr>
-                      <td><?php echo $record->id ;?></td>
-                      <td><?php echo wordwrap($record->name,20,"<br>\n",TRUE) ;?></td>
-                      <td><?php echo wordwrap((strlen($record->desc)>=30)?substr($record->desc,0,20):$record->desc,15,"<br>\n",TRUE)." ..." ;?></td>
-                      <td><?php echo $record->img ;?></td>
-                      <td><?php echo $record->catagory ;?></td>
+                      <td><?php echo $record->name?></td>
+                      <td><?php echo $record->email?></td>
+                      <td><?php echo $record->phone ;?></td>
+                      <td><?php echo $record->website ;?></td>
+                      <td><?php echo wordwrap($record->pesan,50,"<br>\n",TRUE) ;?></td>
                   
                       <td class="text-center"> 
-                          <a class="btn btn-sm btn-info" href="<?php echo base_url().'editProduct/'.$record->id; ?>" title="Edit"><i class="fa fa-pencil"></i></a>
-                          <a class="btn btn-sm btn-danger" href="<?php echo base_url().'product/deleteproduct/'.$record->id; ?>" title="Delete"><i class="fa fa-trash"></i></a>
+                          <a class="btn btn-sm btn-danger" href="<?php echo base_url().'inbox/delete/'.$record->id;?>" title="Delete"><i class="fa fa-trash"></i></a>
                       </td>
                     </tr>
                     <?php
@@ -115,7 +114,7 @@
             e.preventDefault();            
             var link = jQuery(this).get(0).href;            
             var value = link.substring(link.lastIndexOf('/') + 1);
-            jQuery("#searchList").attr("action", baseURL + "product/index/" + value);
+            jQuery("#searchList").attr("action", baseURL + "inbox/index/" + value);
             jQuery("#searchList").submit();
         });
     });

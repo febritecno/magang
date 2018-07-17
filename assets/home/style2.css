@@ -1,170 +1,340 @@
-#banner {
-	height: 650px;
-}
-
-/*warna huruf di navigasi besar/utama*/
-.menuzord-menu>li>a,
-.menuzord-menu>li>a>i,
-.dark.menuzord-menu>li>a {
-    color: white;
-}
-
-/*Background Nav Kecil, sebelumnya ini #1c2532 !important*/
-.tt-nav .light-header,
-.tt-nav.sticky .light-header,
-#header.transparent-header.sticky .light-header,
-.light-nav {
-    background: #0d121a !important;
-}
-
-
-/*warna huruf di navigasi kecil*/
-.transparent-header.sticky .menuzord-menu>li>a,
-.transparent-header.sticky .menuzord-menu>li>a>i {
-    color: white;
-}
-/*
-.intro-title {
-	font-size: 50px;
-    font-weight: 800;
-}*/
-
-.padding-top-20{
-	padding-top: 20px;
-}
-
-.section-padding2 {
-    padding: 50px 0;
-}
-
-.section-padding3 {
-    padding: 50px 0px 0px 0px;
-}
-    
-/*#about {
-	height: 900px;
-
-}*/
-
-#about>.container>.col-md-8>h1 {
-	color: rgb(8, 147, 172);
-}
-
-#about>.container>.col-md-8>p {
-	color: white;
-}
-	
-
-.abouting {
-    background-image: url("assets/img/banner/abouting.jpg");  
-}
-
-.overlay.blue:before {
-  background-image: -moz-linear-gradient( -108deg, rgb(4,4,4) 0%, rgb(3,40,60) 100%);
-  background-image: -webkit-linear-gradient( -108deg, rgb(4,4,4) 0%, rgb(3,40,60) 100%);
-  background-image: -ms-linear-gradient( -108deg, rgb(4,4,4) 0%, rgb(3,40,60) 100%);
-  opacity: 0.802;
-}
-
-.overlay.blue2:before {
-  background-image: -moz-linear-gradient( -108deg, rgb(4,4,4) 0%, rgb(3,40,60) 100%);
-  background-image: -webkit-linear-gradient( -108deg, rgb(4,4,4) 0%, rgb(3,40,60) 100%);
-  background-image: -ms-linear-gradient( -108deg, rgb(4,4,4) 0%, rgb(3,40,60) 100%);
-  opacity: 0.702;
-}
-
-/*#skills {
-	background-color: rgb(235, 235, 235);
-}*/
-
-#skills>.container>.text-center,
-#skills>.container>.row,
-#product>.container>.text-center {
-	color: black;
-
-}
-
-.search-trigger i {
-    color: white;
-}
-    
-#contact>.container>.row>.contact-info>address,
-#contact>.container>.row>.contact-info>address>.mail>p>a {
-	color: white;
-}
-
-#contact {
-	background-color: rgb(235, 235, 235);
-}
-
-.p1-bg {
-	background-color: #0c3044 !important;
-}
-
-.p2-bg {
-	background-color: #0d121a !important;
-}
-
-html, body {
-	font-family: 'Exo', sans-serif!important;
-}
-
-h1, h2, h3, h4, h5, h6{
-    font-family: 'Exo', sans-serif!important;
-}
-
-#contact>.container>.text-center>h2{
-	color: rgb(8, 147, 172);
-}
-
-.box-padding {
-    padding: 9px;
-}
-
-button,input,optgroup,select,textarea {
- margin:0;
- font:inherit;
- color:#d2d3d4;
-}
-
-.input-field input[type=text].valid, .input-field input[type=password].valid, .input-field input[type=email].valid, .input-field input[type=url].valid, .input-field input[type=date].valid, .input-field input[type=tel].valid, .input-field input[type=number].valid, .input-field input[type=search].valid, .input-field textarea.materialize-textarea.valid {
-    border-bottom: 1px solid #03a9f4;
-    -webkit-box-shadow: 0 1px 0 0 #4CAF50;
-    -moz-box-shadow: 0 1px 0 0 #4CAF50;
-    box-shadow: 0 1px 0 0 #03A9F4; }
-
-.mt-20 {
-    margin-top: 20px;
-    margin-bottom: 20px; 
-}
-
-.mt-15 {
-    margin-top: 1px;
-}
-
-/*.logo-brand {
-    margin: 20px 35px 0 0;
-}
-
-.tt-nav .logo-brand img {
-    height: 60px;
-    float: left;
-}*/
-
-/*Ketebalan Font Menu Navigasi*/
-/*#menu-nav {
-  font-weight: 500;
-}*/
-
-/*Warna Menu Puldown (responsive)*/
-/*ul.menuzord-menu {
-        background: #1b2635;
-    }*/
-
-.light.menuzord-menu > li > a, 
-.light.menuzord-menu > li > a > i, 
-.tt-nav .dark-header .menuzord-menu > li > a, 
-.tt-nav .dark-header .menuzord-menu > li > a > i {
-    color: white;
-}
-
+#banner {
+
+	height: 650px;
+
+}
+
+
+
+/*warna huruf di navigasi besar/utama*/
+
+.menuzord-menu>li>a,
+
+.menuzord-menu>li>a>i,
+
+.dark.menuzord-menu>li>a {
+
+    color: white;
+
+}
+
+
+
+/*Background Nav Kecil, sebelumnya ini #1c2532 !important*/
+
+.tt-nav .light-header,
+
+.tt-nav.sticky .light-header,
+
+#header.transparent-header.sticky .light-header,
+
+.light-nav {
+
+    background: #0d121a !important;
+
+}
+
+
+
+
+
+/*warna huruf di navigasi kecil*/
+
+.transparent-header.sticky .menuzord-menu>li>a,
+
+.transparent-header.sticky .menuzord-menu>li>a>i {
+
+    color: white;
+
+}
+
+/*
+
+.intro-title {
+
+	font-size: 50px;
+
+    font-weight: 800;
+
+}*/
+
+
+
+.padding-top-20{
+
+	padding-top: 20px;
+
+}
+
+
+
+.section-padding2 {
+
+    padding: 50px 0;
+
+}
+
+
+
+.section-padding3 {
+
+    padding: 50px 0px 0px 0px;
+
+}
+
+    
+
+/*#about {
+
+	height: 900px;
+
+
+
+}*/
+
+
+
+#about>.container>.col-md-8>h1 {
+
+	color: rgb(8, 147, 172);
+
+}
+
+
+
+#about>.container>.col-md-8>p {
+
+	color: white;
+
+}
+
+	
+
+
+
+.abouting {
+
+    background-image: url("assets/img/banner/abouting.jpg");  
+
+}
+
+
+
+.overlay.blue:before {
+
+  background-image: -moz-linear-gradient( -108deg, rgb(4,4,4) 0%, rgb(3,40,60) 100%);
+
+  background-image: -webkit-linear-gradient( -108deg, rgb(4,4,4) 0%, rgb(3,40,60) 100%);
+
+  background-image: -ms-linear-gradient( -108deg, rgb(4,4,4) 0%, rgb(3,40,60) 100%);
+
+  opacity: 0.802;
+
+}
+
+
+
+.overlay.blue2:before {
+
+  background-image: -moz-linear-gradient( -108deg, rgb(4,4,4) 0%, rgb(3,40,60) 100%);
+
+  background-image: -webkit-linear-gradient( -108deg, rgb(4,4,4) 0%, rgb(3,40,60) 100%);
+
+  background-image: -ms-linear-gradient( -108deg, rgb(4,4,4) 0%, rgb(3,40,60) 100%);
+
+  opacity: 0.702;
+
+}
+
+
+
+/*#skills {
+
+	background-color: rgb(235, 235, 235);
+
+}*/
+
+
+
+#skills>.container>.text-center,
+
+#skills>.container>.row,
+
+#product>.container>.text-center {
+
+	color: black;
+
+
+
+}
+
+
+
+.search-trigger i {
+
+    color: white;
+
+}
+
+    
+
+#contact>.container>.row>.contact-info>address,
+
+#contact>.container>.row>.contact-info>address>.mail>p>a {
+
+	color: white;
+
+}
+
+
+
+#contact {
+
+	background-color: rgb(235, 235, 235);
+
+}
+
+
+
+.p1-bg {
+
+	background-color: #0c3044 !important;
+
+}
+
+
+
+.p2-bg {
+
+	background-color: #0d121a !important;
+
+}
+
+
+
+html, body {
+
+	font-family: 'Exo', sans-serif!important;
+
+}
+
+
+
+h1, h2, h3, h4, h5, h6{
+
+    font-family: 'Exo', sans-serif!important;
+
+}
+
+
+
+#contact>.container>.text-center>h2{
+
+	color: rgb(8, 147, 172);
+
+}
+
+
+
+.box-padding {
+
+    padding: 9px;
+
+}
+
+
+
+button,input,optgroup,select,textarea {
+
+ margin:0;
+
+ font:inherit;
+
+ color:#d2d3d4;
+
+}
+
+
+
+.input-field input[type=text].valid, .input-field input[type=password].valid, .input-field input[type=email].valid, .input-field input[type=url].valid, .input-field input[type=date].valid, .input-field input[type=tel].valid, .input-field input[type=number].valid, .input-field input[type=search].valid, .input-field textarea.materialize-textarea.valid {
+
+    border-bottom: 1px solid #03a9f4;
+
+    -webkit-box-shadow: 0 1px 0 0 #4CAF50;
+
+    -moz-box-shadow: 0 1px 0 0 #4CAF50;
+
+    box-shadow: 0 1px 0 0 #03A9F4; }
+
+
+
+.mt-20 {
+
+    margin-top: 20px;
+
+    margin-bottom: 20px; 
+
+}
+
+
+
+.mt-15 {
+
+    margin-top: 1px;
+
+}
+
+
+
+/*.logo-brand {
+
+    margin: 20px 35px 0 0;
+
+}
+
+
+
+.tt-nav .logo-brand img {
+
+    height: 60px;
+
+    float: left;
+
+}*/
+
+
+
+/*Ketebalan Font Menu Navigasi*/
+
+/*#menu-nav {
+
+  font-weight: 500;
+
+}*/
+
+
+
+/*Warna Menu Puldown (responsive)*/
+
+/*ul.menuzord-menu {
+
+        background: #1b2635;
+
+    }*/
+
+
+
+.light.menuzord-menu > li > a, 
+
+.light.menuzord-menu > li > a > i, 
+
+.tt-nav .dark-header .menuzord-menu > li > a, 
+
+.tt-nav .dark-header .menuzord-menu > li > a > i {
+
+    color: white;
+
+}
+
+
+

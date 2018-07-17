@@ -116,6 +116,22 @@
                 <span>Contact</span>
               </a>
             </li>
+            <li class="treeview">
+              <a href="<?php echo base_url(); ?>Link">
+                <i class="fa fa-link"></i>
+                <span>Social Links</span>
+              </a>
+            </li>
+            <li class="treeview">
+              <a href="<?php echo base_url(); ?>inbox">
+                <i class="fa fa-inbox"></i>
+                <span>Inbox</span>
+                <?php $this->load->database();
+                $inbox=$this->db->get('tbl_pesan')->num_rows();
+                ?>
+                <span class="badge"><?php echo $inbox;?></span>
+              </a>
+            </li>
             <?php
             if($role == ROLE_ADMIN || $role == ROLE_MANAGER)
             {
@@ -138,15 +154,15 @@
                 <span>Users</span>
               </a>
             </li>
+            <li class="treeview">
+              <a href="<?php echo base_url();?>product/sql">
+                <i class="fa fa-save"></i>
+                <span>Export Database SQL</span>
+              </a>
+            </li>
             <?php
             }
             ?>
-            <li class="treeview">
-              <a href="<?php echo base_url(); ?>Link">
-                <i class="fa fa-link"></i>
-                <span>Social Links</span>
-              </a>
-            </li>
           </ul>
         </section>
         <!-- /.sidebar -->

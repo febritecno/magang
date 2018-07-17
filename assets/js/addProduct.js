@@ -16,7 +16,7 @@ $(document).ready(function(){
 		
 		rules:{
 			name :{ required : true },
-			desc : { required : true, 
+			desc : { required : true}, 
 			img : { required : true },
 			catagory : { required : true, selected : true}
 		},

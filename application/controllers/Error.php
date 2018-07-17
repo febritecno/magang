@@ -1,12 +1,5 @@
 <?php if(!defined('BASEPATH')) exit('No direct script access allowed');
 
-/**
- * Class : Error (ErrorController)
- * Error class to redirect on errors
- * @author : Kishor Mali
- * @version : 1.1
- * @since : 15 November 2016
- */
 class Error extends CI_Controller
 {
     /**
@@ -34,7 +27,7 @@ class Error extends CI_Controller
         
         if(!isset($isLoggedIn) || $isLoggedIn != TRUE)
         {
-            $this->load->view('login');
+            redirect();
         }
         else
         {

@@ -2,7 +2,7 @@
     <section class="content-header">
       <h1>
         Access Denied
-        <small>Kamu Harus Login Dulu</small>
+        <small>Please Login Member!!</small>
       </h1>
     </section>
     <section class="content">

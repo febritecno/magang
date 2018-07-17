@@ -1,6 +1,6 @@
-<!DOCTYPE html>
-<html>
-  <head>
+    <!DOCTYPE html>
+    <html>
+    <head>
     <meta charset="UTF-8">
     <title>Garuda Informatics</title>
     <meta content='width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no' name='viewport'>
@@ -11,16 +11,16 @@
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
-        <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
-        <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+    <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
-  </head>
-  <body class="login-page">
+    </head>
+    <body class="login-page">
     <div class="login-box">
       <div class="login-logo">
         <a href="#"><b>Masuk</b></a>
-      </div><!-- /.login-logo -->
-      <div class="login-box-body">
+    </div><!-- /.login-logo -->
+    <div class="login-box-body">
         <p class="login-box-msg">Forgot Password</p>
         <?php $this->load->helper('form'); ?>
         <div class="row">
@@ -84,21 +84,21 @@
           <div class="form-group has-feedback">
             <input type="email" class="form-control" placeholder="Email" name="login_email" required />
             <span class="glyphicon glyphicon-envelope form-control-feedback"></span>
-          </div>
-          
-          <div class="row">
+        </div>
+        
+        <div class="row">
             <div class="col-xs-8">
             </div><!-- /.col -->
             <div class="col-xs-4">
               <input type="submit" class="btn btn-primary btn-block btn-flat" value="Submit" />
-            </div><!-- /.col -->
-          </div>
-        </form>
-        <a href="<?php echo base_url() ?>">Login</a><br>
-      </div><!-- /.login-box-body -->
+          </div><!-- /.col -->
+      </div>
+    </form>
+    <a href="<?php echo base_url() ?>">Login</a><br>
+    </div><!-- /.login-box-body -->
     </div><!-- /.login-box -->
 
     <script src="<?php echo base_url(); ?>assets/js/jQuery-2.1.4.min.js"></script>
     <script src="<?php echo base_url(); ?>assets/bootstrap/js/bootstrap.min.js" type="text/javascript"></script>
-  </body>
-</html>
+    </body>
+    </html>
