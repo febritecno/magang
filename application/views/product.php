@@ -33,7 +33,6 @@
                 <div class="box-body table-responsive no-padding">
                   <table class="table table-hover">
                     <tr>
-                      <th>Id</th>
                       <th>Name</th>
                       <th>Description</th>
                       <th>Image</th>
@@ -48,7 +47,6 @@
                         {
                     ?>
                     <tr>
-                      <td><?php echo $record->id ;?></td>
                       <td><?php echo wordwrap($record->name,20,"<br>\n",TRUE) ;?></td>
                       <td><?php echo wordwrap((strlen($record->desc)>=30)?substr($record->desc,0,20):$record->desc,15,"<br>\n",TRUE)." ..." ;?></td>
                       <td><?php echo $record->img ;?></td>

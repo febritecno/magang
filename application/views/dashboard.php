@@ -9,6 +9,18 @@
     
     <section class="content">
         <div class="row">
+            <?php
+            if($role == ROLE_CLIENT)
+            { 
+            ?>
+             <!-- code here client -->
+
+            <?php
+            }elseif($role == ROLE_SYSTEM || $role == ROLE_ADMIN)
+            {
+            ?>
+           
+
             <div class="col-lg-3 col-xs-6">
               <!-- small box -->
               <div class="small-box bg-aqua">
@@ -57,6 +69,8 @@
                 </div>
               </div>
             </div><!-- ./col -->
+
+             <?php }?>
           </div>
     </section>
 </div>

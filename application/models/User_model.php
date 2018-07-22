@@ -15,6 +15,7 @@ class User_model extends CI_Model
         if(!empty($searchText)) {
             $likeCriteria = "(BaseTbl.email  LIKE '%".$searchText."%'
                             OR  BaseTbl.name  LIKE '%".$searchText."%'
+                             OR  Role.role  LIKE '%".$searchText."%'
                             OR  BaseTbl.mobile  LIKE '%".$searchText."%')";
             $this->db->where($likeCriteria);
         }
@@ -40,6 +41,7 @@ class User_model extends CI_Model
         if(!empty($searchText)) {
             $likeCriteria = "(BaseTbl.email  LIKE '%".$searchText."%'
                             OR  BaseTbl.name  LIKE '%".$searchText."%'
+                            OR  Role.role  LIKE '%".$searchText."%'
                             OR  BaseTbl.mobile  LIKE '%".$searchText."%')";
             $this->db->where($likeCriteria);
         }

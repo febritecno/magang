@@ -18,7 +18,7 @@
             <div class="col-xs-12">
               <div class="box">
                 <div class="box-header">
-                    <h3 class="box-title">Inbox Listing</h3>
+                    <h3 class="box-title">Inbox List</h3>
                     <div class="box-tools">
                         <form action="<?php echo base_url() ?>inbox/" method="POST" id="searchList">
                             <div class="input-group">
@@ -40,7 +40,6 @@
                       <th>Message</th>
                       <th class="text-center">Actions</th>
                     </tr>
-
                       <?php
                     if(!empty($productRecords))
                     {

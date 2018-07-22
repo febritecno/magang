@@ -33,7 +33,6 @@
                 <div class="box-body table-responsive no-padding">
                   <table class="table table-hover">
                     <tr>
-                      <th>Id</th>
                       <th>Name</th>
                       <th>Email</th>
                       <th>Mobile</th>
@@ -47,7 +46,6 @@
                         {
                     ?>
                     <tr>
-                      <td><?php echo $record->userId ?></td>
                       <td><?php echo $record->name ?></td>
                       <td><?php echo $record->email ?></td>
                       <td><?php echo $record->mobile ?></td>

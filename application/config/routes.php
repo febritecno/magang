@@ -86,7 +86,6 @@ $route['createPasswordUser'] = "login/createPasswordUser";
 $route['addProduct'] = "product/addProduct";
 $route['editProduct/(:num)'] = "product/editProduct/$1";
 
-
 $route['send'] = "home/send";
 
 /* End of file routes.php */

@@ -104,6 +104,24 @@
                 <i class="fa fa-dashboard"></i> <span>Dashboard</span></i>
               </a>
             </li>
+            
+            <?php
+            if($role == ROLE_CLIENT)
+            {
+            ?>
+          
+            <?php
+            }
+            else if($role == ROLE_SYSTEM || $role == ROLE_ADMIN)
+            {
+            ?>
+            <!-- <li class="treeview">
+              <a href="#" >
+                <i class="fa fa-thumb-tack"></i>
+                <span>Task Status</span>
+              </a>
+            </li> -->
+
             <li class="treeview">
               <a href="<?php echo base_url(); ?>product">
                 <i class="fa fa-archive"></i>
@@ -132,20 +150,10 @@
                 <span class="badge"><?php echo $inbox;?></span>
               </a>
             </li>
-            <?php
-            if($role == ROLE_ADMIN || $role == ROLE_MANAGER)
-            {
-            ?>
-            <!-- <li class="treeview">
-              <a href="#" >
-                <i class="fa fa-thumb-tack"></i>
-                <span>Task Status</span>
-              </a>
-            </li> -->
 
             <?php
             }
-            if($role == ROLE_ADMIN)
+            if($role == ROLE_SYSTEM)
             {
             ?>
             <li class="treeview">

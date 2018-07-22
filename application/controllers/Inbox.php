@@ -57,7 +57,6 @@ class Inbox extends BaseController
         {
             $id = $this->uri->segment(3);
             $this->db->where('id',$id);
-            $this->db->truncate('tbl_pesan');
             $query = $this->db->get('tbl_pesan')->row();
             if($query) 
             {

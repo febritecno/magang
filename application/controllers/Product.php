@@ -46,6 +46,7 @@ class Product extends BaseController
         
         }
     }
+
     
 
     public function addProduct()
@@ -262,18 +263,26 @@ class Product extends BaseController
 
     public function sql()
     {
-        $this->load->dbutil();
-        $prefs = array(     
-                'format'      => 'zip',             
-                'filename'    => 'sql-backup.sql'
-              );
-        $backup =& $this->dbutil->backup($prefs); 
-        $db_name = 'backup-on-'. date("Y-m-d-H-i-s") .'.zip';
-        $save = base_url().'/assets/temp'.$db_name;
-        $this->load->helper('file');
-        write_file($save, $backup);
-        $this->load->helper('download');
-        force_download($db_name, $backup);
+
+    if($this->isadmin()== TRUE)
+    {
+        $this->loadThis();
+        }
+        else
+        {
+            $this->load->dbutil();
+            $prefs = array(     
+                    'format'      => 'zip',             
+                    'filename'    => 'sql-backup.sql'
+                  );
+            $backup =& $this->dbutil->backup($prefs); 
+            $db_name = 'backup-on-'. date("Y-m-d-H-i-s") .'.zip';
+            $save = base_url().'/assets/temp'.$db_name;
+            $this->load->helper('file');
+            write_file($save, $backup);
+            $this->load->helper('download');
+            force_download($db_name, $backup);
+        }
     }
 
 
