@@ -101,45 +101,31 @@
             <li class="header">MAIN NAVIGATION</li>
             <li class="treeview">
               <a href="<?php echo base_url(); ?>dashboard">
-                <i class="fa fa-dashboard"></i> <span>Dashboard</span></i>
+                <i class="<?php if ($role == ROLE_CLIENT){echo 'fa fa-code-fork';}else{echo 'fa fa-dashboard';}?>"></i> <span><?php if ($role == ROLE_CLIENT){echo 'Timeline';}else{echo 'Dashboard';}?></span></i>
               </a>
             </li>
-            
             <?php
-            if($role == ROLE_CLIENT)
+            if($role == ROLE_SYSTEM || $role == ROLE_ADMIN)
             {
             ?>
-          
-            <?php
-            }
-            else if($role == ROLE_SYSTEM || $role == ROLE_ADMIN)
-            {
-            ?>
-            <!-- <li class="treeview">
-              <a href="#" >
-                <i class="fa fa-thumb-tack"></i>
-                <span>Task Status</span>
-              </a>
-            </li> -->
-
             <li class="treeview">
-              <a href="<?php echo base_url(); ?>product">
-                <i class="fa fa-archive"></i>
-                <span>Products</span>
+              <a href="<?php echo base_url(); ?>">
+                <i class="fa fa fa-credit-card"></i>
+                <span>Orders</span>
               </a>
             </li>
+            <?php }?>
+             <li class="header">COMUNICATION</li>
              <li class="treeview">
-              <a href="<?php echo base_url(); ?>kontak">
-                <i class="fa fa-phone"></i>
-                <span>Contact</span>
+              <a href="<?php echo base_url(); ?>">
+                <i class="fa fa fa-comment-o"></i>
+                <span>Chat</span>
               </a>
             </li>
-            <li class="treeview">
-              <a href="<?php echo base_url(); ?>Link">
-                <i class="fa fa-link"></i>
-                <span>Social Links</span>
-              </a>
-            </li>
+            <?php
+            if($role == ROLE_SYSTEM || $role == ROLE_ADMIN)
+            {
+            ?>
             <li class="treeview">
               <a href="<?php echo base_url(); ?>inbox">
                 <i class="fa fa-inbox"></i>
@@ -150,16 +136,41 @@
                 <span class="badge"><?php echo $inbox;?></span>
               </a>
             </li>
-
+            <li class="header">WEBSITE SETTING</li>
+            <li class="treeview">
+              <a href="<?php echo base_url(); ?>product">
+                <i class="fa fa-archive"></i>
+                <span>Setting Products</span>
+              </a>
+            </li>
+            <li class="treeview">
+              <a href="<?php echo base_url(); ?>kontak">
+                <i class="fa fa-phone"></i>
+                <span>Setting Contact</span>
+              </a>
+            </li>
+            <li class="treeview">
+              <a href="<?php echo base_url(); ?>link">
+                <i class="fa fa-unlink"></i>
+                <span>Setting Social Links</span>
+              </a>
+            </li>
+            <?php
+            }
+            // letak constanta role_client,role_system,dll di config/constanta
+            if($role == ROLE_CLIENT)
+            {
+            ?>
             <?php
             }
             if($role == ROLE_SYSTEM)
             {
             ?>
+            <li class="header">SYSTEM PANEL</li>
             <li class="treeview">
               <a href="<?php echo base_url(); ?>userListing">
                 <i class="fa fa-users"></i>
-                <span>Users</span>
+                <span>Setting Users</span>
               </a>
             </li>
             <li class="treeview">
