@@ -33,11 +33,11 @@ class Inbox extends BaseController
             
             $this->load->library('pagination');
 
-            $count = $this->inbox_model->productcount($searchText);
+            $count = $this->inbox_model->inboxcount($searchText);
 
             $returns = $this->paginationCompress ( "inbox/index/", $count, 5,3);
             
-            $data['productRecords'] = $this->inbox_model->productlisting($searchText, $returns["page"], $returns["segment"]);
+            $data['inboxRecords'] = $this->inbox_model->inboxlisting($searchText, $returns["page"], $returns["segment"]);
 
             $this->global['pageTitle'] = 'Garuda Informatics : Inbox Listing';
 

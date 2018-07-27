@@ -10,7 +10,7 @@
     <!-- FontAwesome 4.3.0 -->
     <link href="<?php echo base_url(); ?>assets/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css" />
     <!-- Ionicons 2.0.0 -->
-    <link href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css" rel="stylesheet" type="text/css" />
+    <link href="<?php echo base_url();?>assets/ionicons/css/ionicons.min.css" rel="stylesheet" type="text/css" />
     <!-- Theme style -->
     <link href="<?php echo base_url(); ?>assets/dist/css/AdminLTE.min.css" rel="stylesheet" type="text/css" />
     <!-- AdminLTE Skins. Choose a skin from the css/skins 
@@ -101,15 +101,28 @@
             <li class="header">MAIN NAVIGATION</li>
             <li class="treeview">
               <a href="<?php echo base_url(); ?>dashboard">
-                <i class="<?php if ($role == ROLE_CLIENT){echo 'fa fa-code-fork';}else{echo 'fa fa-dashboard';}?>"></i> <span><?php if ($role == ROLE_CLIENT){echo 'Timeline';}else{echo 'Dashboard';}?></span></i>
+                <i class="fa fa-dashboard"></i> <span>Dashboard</span></i>
               </a>
             </li>
+            <?php
+            if($role == ROLE_CLIENT)
+            {
+            ?>
+            <li class="treeview">
+              <a href="<?php echo base_url(); ?>client">
+                <i class="fa fa-exchange"></i>
+                <span>My Projects</span>
+              </a>
+            </li>
+            <?php
+            }
+            ?>
             <?php
             if($role == ROLE_SYSTEM || $role == ROLE_ADMIN)
             {
             ?>
             <li class="treeview">
-              <a href="<?php echo base_url(); ?>">
+              <a href="<?php echo base_url(); ?>order">
                 <i class="fa fa fa-credit-card"></i>
                 <span>Orders</span>
               </a>
@@ -132,8 +145,7 @@
                 <span>Inbox</span>
                 <?php $this->load->database();
                 $inbox=$this->db->get('tbl_pesan')->num_rows();
-                ?>
-                <span class="badge"><?php echo $inbox;?></span>
+                ?><span class="badge"><?php echo $inbox;?></span>
               </a>
             </li>
             <li class="header">WEBSITE SETTING</li>
@@ -158,11 +170,7 @@
             <?php
             }
             // letak constanta role_client,role_system,dll di config/constanta
-            if($role == ROLE_CLIENT)
-            {
-            ?>
-            <?php
-            }
+            
             if($role == ROLE_SYSTEM)
             {
             ?>

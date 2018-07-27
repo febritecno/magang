@@ -2,7 +2,7 @@
     <!-- Content Header (Page header) -->
     <section class="content-header">
       <h1>
-        <i class="<?php if ($role == ROLE_CLIENT){echo 'fa fa-code-fork';}else{echo 'fa fa-dashboard';}?>" aria-hidden="true"></i> <?php if ($role == ROLE_CLIENT){echo 'Timeline Project';}else{echo 'Dashboard';}?>
+        <i class="fa fa-dashboard" aria-hidden="true"></i> Dashboard
         <small>Control panel</small>
       </h1>
     </section>
@@ -13,104 +13,129 @@
             if($role == ROLE_CLIENT)
             { 
             ?>
-            <div class="col-lg-12 col-xs-12">
-              <ul class="timeline">
-                  <!-- timeline time label -->
-                  <li class="time-label">
-                      <span class="bg-yellow">
-                          Status : [InProgress]
-                      </span>
-                  </li>
-                  <!-- /.timeline-label -->
 
-                  <!-- timeline item -->
-                  <li>
-                      <!-- timeline icon -->
-                      <i class="fa fa-envelope bg-blue"></i>
-                      <div class="timeline-item">
-                          <span class="time"><i class="fa fa-clock-o"></i> 12:05</span>
-
-                          <h3 class="timeline-header"><a href="#">Support Team</a> ...</h3>
-
-                          <div class="timeline-body">
-                              ...
-                              Content goes here
-                          </div>
-
-                          <!-- <div class="timeline-footer">
-                              <a class="btn btn-primary btn-xs">...</a>
-                          </div> -->
-                      </div>
-                  </li>
-
-                   <li>
-                      <!-- timeline icon -->
-                      <i class="fa fa-envelope bg-blue"></i>
-                      <div class="timeline-item">
-                          <span class="time"><i class="fa fa-clock-o"></i> 12:05</span>
-
-                          <h3 class="timeline-header"><a href="#">Support Team</a> ...</h3>
-
-                          <div class="timeline-body">
-                              ...
-                              Content goes here
-                          </div>
-
-                          <!-- <div class="timeline-footer">
-                              <a class="btn btn-primary btn-xs">...</a>
-                          </div> -->
-                      </div>
-                  </li>
-
-
-                  <li>
-                      <!-- timeline icon -->
-                      <i class="fa fa-envelope bg-blue"></i>
-                      <div class="timeline-item">
-                          <span class="time"><i class="fa fa-clock-o"></i> 12:05</span>
-
-                          <h3 class="timeline-header"><a href="#">Support Team</a> ...</h3>
-
-                          <div class="timeline-body">
-                              ...
-                              Content goes here
-                          </div>
-
-                          <!-- <div class="timeline-footer">
-                              <a class="btn btn-primary btn-xs">...</a>
-                          </div> -->
-                      </div>
-                  </li>
-
-
-                  <li>
-                      <!-- timeline icon -->
-                      <i class="fa fa-envelope bg-blue"></i>
-                      <div class="timeline-item">
-                          <span class="time"><i class="fa fa-clock-o"></i> 12:05</span>
-
-                          <h3 class="timeline-header"><a href="#">Support Team</a> ...</h3>
-
-                          <div class="timeline-body">
-                              ...
-                              Content goes here
-                          </div>
-
-                          <!-- <div class="timeline-footer">
-                              <a class="btn btn-primary btn-xs">...</a>
-                          </div> -->
-                      </div>
-                  </li>
-
-                  <li><i class="fa fa-clock-o bg-gray"></i></li>
-              </ul>
-            </div>
-
+          <div class="col-lg-4 col-xs-6">
+              <!-- small box -->
+              <div class="small-box bg-red">
+                <div class="inner">
+                  <h3><?php echo $all; ?></h3>
+                  <p>PROJECTS START</p>
+                </div>
+                <div class="icon">
+                  <i class="ion ion-ios-compose"></i>
+                </div>
+              </div>
+            </div><!-- ./col -->
+            <div class="col-lg-4 col-xs-6">
+              <!-- small box -->
+              <div class="small-box bg-yellow">
+                <div class="inner">
+                  <h3><?php echo $web; ?></h3>
+                  <p>IN PROGRESS</p>
+                </div>
+                <div class="icon">
+                  <i class="ion ion-ios-timer"></i>
+                </div>
+              </div>
+            </div><!-- ./col -->
+            <div class="col-lg-4 col-xs-6">
+              <!-- small box -->
+              <div class="small-box bg-green">
+                <div class="inner">
+                  <h3><?php echo $desktop; ?></h3>
+                  <p>PROJECTS FINISH</p>
+                </div>
+                <div class="icon">
+                  <i class="ion ion-ribbon-b"></i>
+                </div>
+              </div>
+            </div><!-- ./col -->
+            
             <?php
             }elseif($role == ROLE_SYSTEM || $role == ROLE_ADMIN)
             {
             ?>
-           
+           <div class="col-md-3 col-sm-6 col-xs-12">
+          <div class="info-box bg-blue">
+            <span class="info-box-icon"><i class="fa fa-suitcase"></i></span>
+
+            <div class="info-box-content">
+              <span class="info-box-text">total order</span>
+              <span class="info-box-number">41,410</span>
+              <div class="progress">
+                <div class="progress-bar" style="width: 0%"></div>
+              </div>
+                  <span class="progress-description">
+                    ALL PROJECT
+                  </span>
+            </div>
+            <!-- /.info-box-content -->
+          </div>
+          <!-- /.info-box -->
+        </div>
+
+
+        <div class="col-md-3 col-sm-6 col-xs-12">
+          <div class="info-box bg-red">
+            <span class="info-box-icon"><i class="fa fa-remove"></i></span>
+
+            <div class="info-box-content">
+              <span class="info-box-text">unpaid order</span>
+              <span class="info-box-number">41,410</span>
+
+              <div class="progress">
+                <div class="progress-bar" style="width: 0%"></div>
+              </div>
+                  <span class="progress-description">
+                    START
+                  </span>
+            </div>
+            <!-- /.info-box-content -->
+          </div>
+          <!-- /.info-box -->
+        </div>
+
+
+        <div class="col-md-3 col-sm-6 col-xs-12">
+          <div class="info-box bg-yellow">
+            <span class="info-box-icon"><i class="fa fa-spinner"></i></span>
+
+            <div class="info-box-content">
+              <span class="info-box-text">non cash order</span>
+              <span class="info-box-number">41,410</span>
+
+              <div class="progress">
+                <div class="progress-bar" style="width: 0%"></div>
+              </div>
+                  <span class="progress-description">
+                    IN PROGRESS
+                  </span>
+            </div>
+            <!-- /.info-box-content -->
+          </div>
+          <!-- /.info-box -->
+        </div>
+
+
+        <div class="col-md-3 col-sm-6 col-xs-12">
+          <div class="info-box bg-green">
+            <span class="info-box-icon"><i class="fa fa-ticket"></i></span>
+
+            <div class="info-box-content">
+              <span class="info-box-text">paid order</span>
+              <span class="info-box-number">41,410</span>
+
+              <div class="progress">
+                <div class="progress-bar" style="width: 0%"></div>
+              </div>
+                  <span class="progress-description">
+                    FINISH
+                  </span>
+            </div>
+            <!-- /.info-box-content -->
+          </div>
+          <!-- /.info-box -->
+        </div>
 
             <div class="col-lg-3 col-xs-6">
               <!-- small box -->

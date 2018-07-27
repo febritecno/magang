@@ -10,7 +10,7 @@
         <div class="row">
             <div class="col-xs-12 text-right">
                 <div class="form-group">
-                    <a class="btn btn-primary" href="<?php echo base_url(); ?>inbox/all"><i class="fa fa-cut"></i> Delete All</a>
+                    <a class="btn btn-warning" href="<?php echo base_url(); ?>inbox/all"><i class="fa fa-cut"></i> Delete All</a>
                 </div>
             </div>
         </div>
@@ -36,14 +36,14 @@
                       <th>Name</th>
                       <th>Email</th>
                       <th>Phone</th>
-                      <th>Site</th>
+                      <th>Website</th>
                       <th>Message</th>
                       <th class="text-center">Actions</th>
                     </tr>
                       <?php
-                    if(!empty($productRecords))
+                    if(!empty($inboxRecords))
                     {
-                        foreach($productRecords as $record)
+                        foreach($inboxRecords as $record)
                         {
                     ?>
                     <tr>

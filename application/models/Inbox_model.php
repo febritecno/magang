@@ -2,7 +2,7 @@
 
 class Inbox_model extends CI_Model
 {
-     function productcount($searchText = '')
+    function inboxcount($searchText = '')
     {
         $this->db->select('BaseTbl.id, BaseTbl.name, BaseTbl.email, BaseTbl.phone, BaseTbl.website, BaseTbl.website,BaseTbl.pesan');
         $this->db->from('tbl_pesan as BaseTbl');
@@ -20,7 +20,7 @@ class Inbox_model extends CI_Model
         return $query->num_rows();
     }
 
-    function productlisting($searchText = '', $page, $segment)
+    function inboxlisting($searchText = '', $page, $segment)
     {
         $this->db->select('BaseTbl.id, BaseTbl.name, BaseTbl.email, BaseTbl.phone, BaseTbl.website,BaseTbl.pesan');
         $this->db->from('tbl_pesan as BaseTbl');

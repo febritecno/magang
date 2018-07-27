@@ -30,7 +30,7 @@ if(!empty($kontak))
     <!-- Content Header (Page header) -->
     <section class="content-header">
       <h1>
-        <i class="fa fa-archive"></i> Contact Management
+        <i class="fa fa-phone"></i> Contact Management
        
       </h1>
     </section>
@@ -44,7 +44,7 @@ if(!empty($kontak))
                 
                 <div class="box box-primary">
                     <div class="box-header">
-                        <h3 class="box-title">Enter Contacts Information</h3>
+                        <h3 class="box-title"><small>Enter Contacts Information</small></h3>
                     </div><!-- /.box-header -->
                     <!-- form start -->
                     <?php $this->load->helper("form"); ?>

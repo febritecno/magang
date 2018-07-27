@@ -25,7 +25,7 @@ if(!empty($links))
     <!-- Content Header (Page header) -->
     <section class="content-header">
       <h1>
-        <i class="fa fa-archive"></i> Social Links Management
+        <i class="fa fa-unlink"></i> Social Links Management
         
     </h1>
 </section>
@@ -39,7 +39,7 @@ if(!empty($links))
           
           <div class="box box-primary">
             <div class="box-header">
-                <h3 class="box-title">Enter Social Links</h3>
+                <h3 class="box-title"><small>Enter Social Links</small></h3>
             </div><!-- /.box-header -->
             <!-- form start -->
             <?php $this->load->helper("form"); ?>

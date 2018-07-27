@@ -15,6 +15,10 @@
     <script src="<?php echo base_url(); ?>assets/dist/js/app.min.js" type="text/javascript"></script>
     <script src="<?php echo base_url(); ?>assets/js/jquery.validate.js" type="text/javascript"></script>
     <script src="<?php echo base_url(); ?>assets/js/validation.js" type="text/javascript"></script>
+    <script src="<?php echo base_url(); ?>assets/plugins/input-mask/jquery.inputmask.js" type="text/javascript"></script>
+    <script src="<?php echo base_url(); ?>assets/plugins/input-mask/jquery.inputmask.date.extensions.js" type="text/javascript"></script>
+    <script src="<?php echo base_url(); ?>assets/plugins/input-mask/jquery.inputmask.extensions.js" type="text/javascript"></script>
+
     <script type="text/javascript">
         var windowURL = window.location.href;
         pageURL = windowURL.substring(0, windowURL.lastIndexOf('/'));
@@ -24,6 +28,20 @@
         var y= $('a[href="'+windowURL+'"]');
             y.addClass('active');
             y.parent().addClass('active');
+/*    $(function() {
+            setTimeout(function() {
+                  location.reload();
+            }, 1);
+});*/
+
+
+    $(function () {
+        $('#deadline').inputmask('yyyy/mm/dd', { 'placeholder': 'yyyy/mm/dd' })
+    })
+
+
+
+
     </script>
   </body>
 </html>

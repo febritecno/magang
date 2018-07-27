@@ -21,13 +21,21 @@ class User extends BaseController
     {
 
         $this->load->model('product_model');
+
+        //admin&system
         $data['web'] = $this->product_model->count('Websites');
         $data['desktop'] = $this->product_model->count('Desktop App');
         $data['mobile'] = $this->product_model->count('Mobile App');
         $data['all'] = $this->product_model->countall();
+
+        //client
+        $anu['yo'] = "anu";
+
+
         $this->global['pageTitle'] = 'Garuda Informatics : Dashboard';
         
         $this->loadViews("dashboard", $this->global, $data , NULL);
+
     }
     
     /**
