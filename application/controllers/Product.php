@@ -246,7 +246,7 @@ class Product extends BaseController
         }
         else
         {
-            $id = $this->uri->segment(3);
+            $id = $this->uri->segment(2);
             $this->db->where('id',$id);
             $query = $this->db->get('tbl_product')->row();
             unlink(realpath('storage/img_product/'.$query->img));

@@ -86,6 +86,7 @@ $route['resetPasswordConfirmUser/(:any)/(:any)'] = "login/resetPasswordConfirmUs
 $route['createPasswordUser'] = "login/createPasswordUser";
 
 $route['addProduct'] = "product/addProduct";
+$route['deleteproduct/(:num)'] = "product/deleteproduct/$1";
 $route['editProduct/(:num)'] = "product/editProduct/$1";
 
 $route['add_progress/(:num)/(:num)'] = "order/add_progress/$1/$1";

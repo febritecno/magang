@@ -98,7 +98,10 @@
                           }
                         ?>
                       </td>
-                      <td><a href="<?php echo base_url().'add_progress/'.$record->id.'/'.$record->userId;?>" class="badge label-info">Add Progress</a></td>
+                       <!-- memasang payload by orderid dan user id yang telah login(pembuat progress) sebagai data untuk mengambil progreess di client-->
+                      <td><a href="<?php echo base_url().'add_progress/'.$record->id.'/'.$this->session->userdata('userId');?>" class="badge label-info">+</a>
+                          <a href="<?php echo base_url().'progress/'.$record->id;?>" class="badge label-success"><i class="fa fa-eye"></i></a>
+                      </td>
 
                       <td class="text-center"> 
                           <a class="btn btn-sm btn-danger" href="<?php echo base_url().'delete/'.$record->id;?>" title="Delete"><i class="fa fa-trash"></i></a>

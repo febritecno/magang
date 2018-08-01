@@ -56,16 +56,18 @@ class Client extends BaseController
     public function progress()
     {
 
-        if($this->isAdmin() == FALSE)
+        if($this->isAdmin() == TRUE)
         {
             $this->loadThis();
         }
         else
-        {
+        {   
 
+            $orderId=$this->uri->segment(2);
+            $data['pro'] = $this->client_model->show_progress($orderId);
             $this->global['pageTitle'] = 'Garuda Informatics : Progress Listing';
 
-            $this->loadViews($this->view."progress", $this->global,null, NULL);
+            $this->loadViews($this->view."progress", $this->global,$data, NULL);
         
         }
     }
@@ -98,7 +100,7 @@ class Client extends BaseController
         }
         else
         {
-            $id = $this->uri->segment(3);
+            $id = $this->uri->segment(2);
             $this->db->where('id',$id);
             $query = $this->db->get('tbl_order')->row();
             unlink(realpath('storage/document/'.$query->file));

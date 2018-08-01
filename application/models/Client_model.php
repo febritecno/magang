@@ -43,6 +43,7 @@ class client_model extends CI_Model
 
     function delete($id)
     {   
+        $this->db->where('userId',$this->session->userdata('userId'));
         $this->db->where('id',$id);
         $this->db->delete('tbl_order');
 
@@ -54,7 +55,19 @@ class client_model extends CI_Model
         // MAX(id) + 1
     }
 
+    function show_progress($segment)
+    {
+        $this->db->select('t.title t_title,t.text,t.badge,t.timestamp,o.progress,o.title t_order,o.type,o.deadline,u.name,u.email,u.mobile');
+
+        $this->db->join('tbl_order as o','o.id=t.orderId','left');
+        $this->db->join('tbl_users as u','u.userId=t.userId','left');
+        
+        $this->db->from('tbl_timeline as t');
+        $this->db->where('t.orderId',$segment);
+        $query=$this->db->get();
+        $result = $query->result();
+        return $result;
+    }
+
 
 }
-
-  

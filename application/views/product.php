@@ -54,7 +54,7 @@
                   
                       <td class="text-center"> 
                           <a class="btn btn-sm btn-info" href="<?php echo base_url().'editProduct/'.$record->id; ?>" title="Edit"><i class="fa fa-pencil"></i></a>
-                          <a class="btn btn-sm btn-danger" href="<?php echo base_url().'product/deleteproduct/'.$record->id; ?>" title="Delete"><i class="fa fa-trash"></i></a>
+                          <a class="btn btn-sm btn-danger" href="<?php echo base_url().'deleteproduct/'.$record->id; ?>" title="Delete"><i class="fa fa-trash"></i></a>
                       </td>
                     </tr>
                     <?php
