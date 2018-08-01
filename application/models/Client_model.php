@@ -70,5 +70,10 @@ class client_model extends CI_Model
         return $result;
     }
 
+    function save_order($data)
+    {
+        $this->db->insert('tbl_order',$data);
+    }
+
 
 }

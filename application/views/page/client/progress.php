@@ -55,7 +55,7 @@ foreach ($pro as $p) {
             break;
           
           default:
-            echo '<span class="bg-black">DATA NOT FOUND</span>';
+            echo '<span class="bg-black">EMPTY PROGRESS</span>';
             break;
         }
 

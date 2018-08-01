@@ -91,10 +91,10 @@ $route['editProduct/(:num)'] = "product/editProduct/$1";
 
 $route['add_progress/(:num)/(:num)'] = "order/add_progress/$1/$1";
 $route['send_progress'] = "order/send_progress";
-$route['delete/(:num)'] = "order/delete/$1";
 
 $route['progress/(:num)'] = "client/progress/$1";
 $route['new_order'] = "client/new_order";
+$route['send_order'] = "client/send_order";
 $route['delete/(:num)'] = "client/delete/$1";
 
 $route['send'] = "home/send";

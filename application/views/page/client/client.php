@@ -49,7 +49,8 @@
                     <tr>
                       <td><?php echo wordwrap($record->title,15,"<br>\n",TRUE);?></td>
                       <td><?php echo wordwrap($record->type,15,"<br>\n",TRUE);?></td>
-                      <td><a href="<?php echo $record->file ;?>"><span class="fa fa-download"> Download</span></a></td>
+                      
+                      <td><a href="<?php echo base_url().'storage/document/'.$record->file ;?>"><span class="fa fa-download"> Download</span></a></td>
                     
                       <td><?php
                           switch ($s=$record->status) {

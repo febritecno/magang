@@ -75,14 +75,15 @@ class Order extends BaseController
         else
         {
             $this->form_validation->set_rules('title','Progress Title','trim|required|max_length[128]');
-            $this->form_validation->set_rules('text','Description Progress','trim|required|max_length[1000]');
+            $this->form_validation->set_rules('text','Description Progress','trim|required');
             $this->form_validation->set_rules('badge','Select Badge For Progress','trim|required');
             $this->form_validation->set_rules('orderid','OrderId','trim|required');
             $this->form_validation->set_rules('userid','UserId','trim|required');
 
             if($this->form_validation->run() == FALSE)
             {
-                $this->session->set_flashdata('error', 'System Failure');
+                $this->session->set_flashdata('error', 'Error Add Progress, try again');
+                redirect('order');
             }else{
 
             $title = $this->input->post('title');
@@ -100,7 +101,7 @@ class Order extends BaseController
                 }
                 else
                 {
-                    $this->session->set_flashdata('error', 'Opps...., Error');
+                    $this->session->set_flashdata('error', 'Error, please try again');
                 }
 
             redirect('order');
@@ -110,18 +111,19 @@ class Order extends BaseController
         }
     }
 
-    public function delete()
+    public function admin_delete()
     {
-        if($this->isadmin()== TRUE)
+        if($this->isAdmin() == TRUE)
         {
             $this->loadThis();
         }
         else
         {
             $id = $this->uri->segment(2);
-            $this->db->where('id',$id);
+            $this->db->where('id',$id);//select file
             $query = $this->db->get('tbl_order')->row();
-            if($query > 0) 
+            unlink(realpath('storage/document/'.$query->file));
+            if($query > 0)
             {
                 $this->session->set_flashdata('success', 'Delete Operation Successfully');
                 $this->order_model->delete($id);

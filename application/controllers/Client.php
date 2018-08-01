@@ -16,6 +16,7 @@ class Client extends BaseController
         $this->isLoggedIn();
         $this->load->model('client_model');
         $this->load->database();
+        $this->load->library('form_validation');
 
         //global variable untuk folder page
         $this->view= "page/client/";
@@ -89,12 +90,61 @@ class Client extends BaseController
         
         }
     }
+
+    public function send_order()
+    {
+
+        if($this->isAdmin() == FALSE)
+        {
+            $this->loadThis();
+        }
+        else
+        {
+           
+                $fileData = array();
+                $config['upload_path']          = './storage/document';
+                $config['allowed_types']        = 'doc|docx|rar|zip';
+                $config['overwrite']            = TRUE;
+                $config['max_size']             = 90000;
+
+                $this->load->library('upload', $config);
+
+            
+                if ($this->upload->do_upload('file')) {
+
+                $data = $this->upload->data(); // Get the file data
+                $fileData[] = $data; // It's an array with many data
+
+                // Interate throught the data to work with them
+                foreach ($fileData as $file) { //describe all info upload
+                    $file_data = $file;
+                    }
+
+                }else{
+                    $this->session->set_flashdata('error', 'Error Upload! please check your upload document');
+                }
+
+                $userId=$this->input->post('userId');
+                $title=$this->input->post('title');
+                $type=$this->input->post('type');
+                $file=$file_data['file_name'];
+                $deadline=$this->input->post('deadline');
+
+                $save = array('title' => $title,'type' => $type,'file' => $file,'deadline' => $deadline,'userId' => $userId );
+
+                $result=$this->client_model->save_order($save);
+
+                $this->session->set_flashdata('success', 'Send data has successfully');
+                
+                redirect('client');
+        }
+    }
     
     
 
     public function delete()
     {
-        if($this->isadmin()== FALSE)
+        if($this->isAdmin() == FALSE)
         {
             $this->loadThis();
         }
@@ -104,7 +154,7 @@ class Client extends BaseController
             $this->db->where('id',$id);
             $query = $this->db->get('tbl_order')->row();
             unlink(realpath('storage/document/'.$query->file));
-            if($query > 0) 
+            if($query > 0)
             {
                 $this->session->set_flashdata('success', 'Delete Operation Successfully');
                 $this->client_model->delete($id);

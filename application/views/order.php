@@ -54,7 +54,7 @@
                     <tr>
                       <td><?php echo wordwrap($record->title,15,"<br>\n",TRUE);?></td>
                       <td><?php echo wordwrap($record->type,15,"<br>\n",TRUE);?></td>
-                      <td><a href="<?php echo $record->file ;?>"><span class="fa fa-download"> Download</span></a></td>
+                      <td><a href="<?php echo base_url().'storage/document/'.$record->file ;?>"><span class="fa fa-download"> Download</span></a></td>
                       <td><?php echo wordwrap($record->name,10,"<br>\n",TRUE)?></td>
                       <td><?php echo $record->mobile;?></td>
                       <td><?php echo $record->email ;?></td>
@@ -99,12 +99,12 @@
                         ?>
                       </td>
                        <!-- memasang payload by orderid dan user id yang telah login(pembuat progress) sebagai data untuk mengambil progreess di client-->
-                      <td><a href="<?php echo base_url().'add_progress/'.$record->id.'/'.$this->session->userdata('userId');?>" title="Add Progress To This Project" class="badge label-info">+</a>
+                      <td><a href="<?php echo base_url().'add_progress/'.$record->id.'/'.$this->session->userdata('userId');?>" title="Add Progress To This Project" class="badge label-info"><i class="fa fa-paper-plane-o"></i></a>
                           <a href="<?php echo base_url().'progress/'.$record->id;?>" title="View Progress Detail" class="badge label-success"><i class="fa fa-eye"></i></a>
                       </td>
 
                       <td class="text-center"> 
-                          <a class="btn btn-sm btn-danger" href="<?php echo base_url().'delete/'.$record->id;?>" title="Delete"><i class="fa fa-trash"></i></a>
+                          <a class="btn btn-sm btn-danger" href="<?php echo base_url().'order/admin_delete/'.$record->id;?>" title="Delete"><i class="fa fa-trash"></i></a>
                       </td>
                     </tr>
                     <?php

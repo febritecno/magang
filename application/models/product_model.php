@@ -76,7 +76,7 @@ class Product_model extends CI_Model
     return TRUE; 
     }
 
-    // count widget model
+    // count widget admin
 
     function count($tbl,$row,$data)
     {
