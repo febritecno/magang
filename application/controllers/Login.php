@@ -105,6 +105,61 @@ class Login extends CI_Controller
             redirect('/dashboard');
         }
     }
+
+    public function register()
+    {
+        $isLoggedIn = $this->session->userdata('isLoggedIn');
+        
+        if(!isset($isLoggedIn) || $isLoggedIn != TRUE)
+        {
+            $this->load->view('register');
+        }
+        else
+        {
+            redirect('/dashboard');
+        }
+
+    }
+
+    public function send_register()
+    {
+        $this->load->library('form_validation');
+            
+            $this->form_validation->set_rules('name','Full Name','trim|required|max_length[128]');
+            $this->form_validation->set_rules('email','Email','trim|required|valid_email|max_length[128]');
+            $this->form_validation->set_rules('phone','Mobile Number','required|min_length[10]');
+            $this->form_validation->set_rules('password','Password','required|max_length[20]');
+            $this->form_validation->set_rules('repassword','Confirm Password','trim|required|matches[password]|max_length[20]');
+            
+            if($this->form_validation->run() == FALSE)
+            {
+                $this->register();
+            }
+            else
+            {
+                $name = ucwords(strtolower($this->security->xss_clean($this->input->post('name'))));
+                $email = $this->security->xss_clean($this->input->post('email'));
+                $mobile = $this->security->xss_clean($this->input->post('phone'));
+                $password = $this->input->post('password');
+                
+                $userInfo = array('name'=> $name,'email'=>$email, 'roleId'=>3,
+                                    'mobile'=>$mobile,'password'=>getHashedPassword($password),'createdBy'=>1, 'createdDtm'=>date('Y-m-d H:i:s'));
+                
+                $this->load->model('user_model');
+                $result = $this->user_model->addNewUser($userInfo);
+                
+                if($result > 0)
+                {
+                    $this->session->set_flashdata('success', 'Thanks for registration, <br/>please check your email for activation your account');
+                }
+                else
+                {
+                    $this->session->set_flashdata('error', 'Registration Failed');
+                }
+                
+                redirect('register');
+            }
+    }  
     
     /**
      * This function used to generate reset password request link

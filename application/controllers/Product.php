@@ -86,7 +86,7 @@ class Product extends BaseController
             {   
 //upload --------------------------------------
                 $fileData = array();
-                $config['upload_path']          = './assets/product';
+                $config['upload_path']          = './storage/img_product';
                 $config['allowed_types']        = 'gif|jpg|png';
                 $config['overwrite']            = TRUE;
                 $config['max_size']             = 800;
@@ -100,12 +100,13 @@ class Product extends BaseController
 
                 $data = $this->upload->data(); // Get the file data
                 $fileData[] = $data; // It's an array with many data
+
                 // Interate throught the data to work with them
-                foreach ($fileData as $file) {
+                foreach ($fileData as $file) { //describe all info upload
                     $file_data = $file;
                     }
                 }else{
-                    $this->session->set_flashdata('error', 'Error Upload! please input image');
+                    $this->session->set_flashdata('error', 'Error Upload! please check image');
                 }
 //------------------------------
 
@@ -171,7 +172,7 @@ class Product extends BaseController
             
 //upload------------------------------------
                 $fileData = array();
-                $config['upload_path']          = './assets/product';
+                $config['upload_path']          = './storage/img_product';
                 $config['allowed_types']        = 'gif|jpg|png';
                 $config['overwrite']            = TRUE;
                 $config['max_size']             = 800;
@@ -190,7 +191,7 @@ class Product extends BaseController
                     $file_data = $file;
                     }
                 }else{
-                    $this->session->set_flashdata('error', 'Error Upload! please input image');
+                    $this->session->set_flashdata('error', 'Error Upload! please check image');
                     redirect('product');
                 }
 //-------------------------------
@@ -248,7 +249,7 @@ class Product extends BaseController
             $id = $this->uri->segment(3);
             $this->db->where('id',$id);
             $query = $this->db->get('tbl_product')->row();
-            unlink(realpath('assets/product/'.$query->img));
+            unlink(realpath('storage/img_product/'.$query->img));
             if($query) 
             {
                 $this->session->set_flashdata('success', 'Delete operation successfully');
@@ -277,7 +278,7 @@ class Product extends BaseController
                   );
             $backup =& $this->dbutil->backup($prefs); 
             $db_name = 'backup-on-'. date("Y-m-d-H-i-s") .'.zip';
-            $save = base_url().'/assets/temp'.$db_name;
+            $save = base_url().'/storage/backup_sql'.$db_name;
             $this->load->helper('file');
             write_file($save, $backup);
             $this->load->helper('download');

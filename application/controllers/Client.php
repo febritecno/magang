@@ -17,7 +17,7 @@ class Client extends BaseController
         $this->load->model('client_model');
         $this->load->database();
 
-        //global variable folder view
+        //global variable untuk folder page
         $this->view= "page/client/";
             
     }
@@ -92,7 +92,7 @@ class Client extends BaseController
 
     public function delete()
     {
-        if($this->isadmin()== TRUE)
+        if($this->isadmin()== FALSE)
         {
             $this->loadThis();
         }
@@ -100,8 +100,9 @@ class Client extends BaseController
         {
             $id = $this->uri->segment(3);
             $this->db->where('id',$id);
-            $query = $this->db->get('tbl_client')->row();
-            if($query) 
+            $query = $this->db->get('tbl_order')->row();
+            unlink(realpath('storage/document/'.$query->file));
+            if($query > 0) 
             {
                 $this->session->set_flashdata('success', 'Delete Operation Successfully');
                 $this->client_model->delete($id);

@@ -44,65 +44,65 @@
   <script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?key=AIzaSyCdW_jLhEZY0VDeMsaQmel9yFGx38b_sf4&"></script>
   
   <style type="text/css">
-    .draw-border {
-  box-shadow: inset 0 0 0 4px #ffff;
-  color: #ffff;
-  transition: color 0.25s 0.0833333333s;
-  position: relative;
-}
-.draw-border::before, .draw-border::after {
-  border: 0 solid transparent;
-  box-sizing: border-box;
-  content: '';
-  pointer-events: none;
-  position: absolute;
-  width: 0;
-  height: 0;
-  bottom: 0;
-  right: 0;
-}
-.draw-border::before {
-  border-bottom-width: 4px;
-  border-left-width: 4px;
-}
-.draw-border::after {
-  border-top-width: 4px;
-  border-right-width: 4px;
-}
-.draw-border:hover {
-  color: #ffe593;
-}
-.draw-border:hover::before, .draw-border:hover::after {
-  border-color: #ffe593;
-  transition: border-color 0s, width 0.25s, height 0.25s;
-  width: 100%;
-  height: 100%;
-}
-.draw-border:hover::before {
-  transition-delay: 0s, 0s, 0.25s;
-}
-.draw-border:hover::after {
-  transition-delay: 0s, 0.25s, 0s;
-}
+  .draw-border {
+    box-shadow: inset 0 0 0 4px #ffff;
+    color: #ffff;
+    transition: color 0.25s 0.0833333333s;
+    position: relative;
+  }
+  .draw-border::before, .draw-border::after {
+    border: 0 solid transparent;
+    box-sizing: border-box;
+    content: '';
+    pointer-events: none;
+    position: absolute;
+    width: 0;
+    height: 0;
+    bottom: 0;
+    right: 0;
+  }
+  .draw-border::before {
+    border-bottom-width: 4px;
+    border-left-width: 4px;
+  }
+  .draw-border::after {
+    border-top-width: 4px;
+    border-right-width: 4px;
+  }
+  .draw-border:hover {
+    color: #ffe593;
+  }
+  .draw-border:hover::before, .draw-border:hover::after {
+    border-color: #ffe593;
+    transition: border-color 0s, width 0.25s, height 0.25s;
+    width: 100%;
+    height: 100%;
+  }
+  .draw-border:hover::before {
+    transition-delay: 0s, 0s, 0.25s;
+  }
+  .draw-border:hover::after {
+    transition-delay: 0s, 0.25s, 0s;
+  }
 
-.btn {
-  margin-top: 2%;
-  background: none;
-  border: none;
-  cursor: pointer;
-  line-height: 1.5;
-  font: 700 1.2rem 'Roboto Slab', sans-serif;
-  padding: 18px 50px;
-  letter-spacing: 0.05rem;
-}
-.btn:focus {
-  outline: 2px dotted #55d7dc;
-}
+  .btn {
+    margin-top: 2%;
+    background: none;
+    border: none;
+    cursor: pointer;
+    line-height: 1.5;
+    font: 700 1.2rem 'Roboto Slab', sans-serif;
+    padding: 18px 50px;
+    letter-spacing: 0.05rem;
+  }
+  .btn:focus {
+    outline: 2px dotted #55d7dc;
+  }
 
-  </style>
-  <script type="text/javascript">
-    (function() {
-      window.onload = function(){
+</style>
+<script type="text/javascript">
+  (function() {
+    window.onload = function(){
             // Lintang = Latitude
             // Bujur = Longtitude
             <?php foreach ($kontak as $ko) {
@@ -201,6 +201,9 @@
                           <li>
                             <a href="#contact" class=page-scroll>Kontak</a>
                           </li>
+                          <li>
+                            <a href="<?php base_url()?>login" class=page-scroll>Log in</a>
+                          </li>
                         </ul>
                         <!--mega menu end-->
 
@@ -239,7 +242,7 @@
                           <div class="intro-header">
                             <i class="material-icons brand-icon">&#xE30A;</i>
                             <h2>Desktop Apps</h2>
-                            <a href ="#" class="btn draw-border">Order Now</a>
+                            <a href ="<?php echo base_url(); ?>register" class="btn draw-border">Order Now</a>
                           </div>
                           <div class="content">
                             <p>Pembuatan software berbasis desktop</p>
@@ -254,7 +257,7 @@
                           <div class="intro-header">
                             <i class="material-icons brand-icon">&#xE0DE;</i>
                             <h2>Mobile Apps</h2>
-                            <a href ="#" class="btn draw-border">Order Now</a>
+                            <a href ="<?php echo base_url(); ?>register" class="btn draw-border">Order Now</a>
                           </div>
 
                           <div class="content">
@@ -270,7 +273,7 @@
                           <div class="intro-header">
                             <i class="material-icons brand-icon">&#xE051;</i>
                             <h2>Website Apps</h2>
-                            <a href ="#" class="btn draw-border">Order Now</a>
+                            <a href ="<?php echo base_url(); ?>register" class="btn draw-border">Order Now</a>
                           </div>
 
                           <div class="content">
@@ -432,18 +435,18 @@
                         <div class="portfolio-item" id="item" data-groups='["all", "<?php echo $k->catagory;?>"]'>
                           <div class="card" id="card">
                             <div class="card-image waves-effect waves-block waves-light">
-                              <a href="<?php echo base_url('assets/product/'.$k->img);?>" data-lightbox="<?php echo $k->img?>" data-title="<?php echo $k->name; ?>">
-                               <img style="height: 200px!important;width: 350px!important;" class="activator" src="<?php echo base_url('assets/product/'.$k->img);?>" alt="garudainformatics">
+                              <a href="<?php echo base_url('storage/img_product/'.$k->img);?>" data-lightbox="<?php echo $k->img?>" data-title="<?php echo $k->name; ?>">
+                               <img style="height: 200px!important;width: 350px!important;" class="activator" src="<?php echo base_url('storage/img_product/'.$k->img);?>" alt="garudainformatics">
                              </a>
                            </div>
                            <div class="card-content">
-                            <span class="card-title activator"><?php echo $k->name; ?> <i class="fa fa-ellipsis-v right"></i></span>
+                            <span class="card-title activator" style="word-wrap: break-word;"><?php echo $k->name; ?> <i class="fa fa-ellipsis-v right"></i></span>
                             <p><a href="#"><?php echo $k->catagory;?></a></p>
                           </div>
                           <div class="card-reveal">
-                            <span class="card-title"><?php echo $k->name; ?> <i class="material-icons right">&#xE5CD;</i></span>
+                            <span class="card-title" style="word-wrap: break-word;"><?php echo $k->name; ?> <i class="material-icons right">&#xE5CD;</i></span>
                             <p><a href="#"><?php echo $k->catagory; ?></a></p>
-                            <p><?php echo $k->desc; ?></p>
+                            <p style="word-wrap: break-word;"><?php echo $k->desc; ?></p>
                             <!-- <a href="#" class="readmore">View full project</a> -->
                           </div>
                         </div>
@@ -518,128 +521,128 @@
                   echo form_open('send');
                   ?>
 
-                    <div class="row">
-                      <div class="col-md-6">
-                        <div class="input-field">
-                          <input type="text" name="name" class="validate" id="name">
-                          <label for="name">Name</label>
-                        </div>
+                  <div class="row">
+                    <div class="col-md-6">
+                      <div class="input-field">
+                        <input type="text" name="name" class="validate" id="name">
+                        <label for="name">Name</label>
+                      </div>
 
-                      </div><!-- /.col-md-6 -->
+                    </div><!-- /.col-md-6 -->
 
-                      <div class="col-md-6">
-                        <div class="input-field">
-                          <label class="sr-only" for="email">Email</label>
-                          <input id="email" type="email" name="email" class="validate" >
-                          <label for="email" data-error="wrong" data-success="right">Email</label>
-                        </div>
-                      </div><!-- /.col-md-6 -->
-                    </div><!-- /.row -->
+                    <div class="col-md-6">
+                      <div class="input-field">
+                        <label class="sr-only" for="email">Email</label>
+                        <input id="email" type="email" name="email" class="validate" >
+                        <label for="email" data-error="wrong" data-success="right">Email</label>
+                      </div>
+                    </div><!-- /.col-md-6 -->
+                  </div><!-- /.row -->
 
-                    <div class="row">
-                      <div class="col-md-6">
-                        <div class="input-field">
-                          <input id="phone" type="number" name="phone" class="validate" >
-                          <label for="phone">Phone Number</label>
-                        </div>
-                      </div><!-- /.col-md-6 -->
+                  <div class="row">
+                    <div class="col-md-6">
+                      <div class="input-field">
+                        <input id="phone" type="number" name="phone" class="validate" >
+                        <label for="phone">Phone Number</label>
+                      </div>
+                    </div><!-- /.col-md-6 -->
 
-                      <div class="col-md-6">
-                        <div class="input-field">
-                          <input id="website" type="text" name="website" class="validate" >
-                          <label for="website">Your Website</label>
-                        </div>
-                      </div><!-- /.col-md-6 -->
-                    </div><!-- /.row -->
+                    <div class="col-md-6">
+                      <div class="input-field">
+                        <input id="website" type="text" name="website" class="validate" >
+                        <label for="website">Your Website</label>
+                      </div>
+                    </div><!-- /.col-md-6 -->
+                  </div><!-- /.row -->
 
-                    <div class="input-field">
-                      <textarea name="pesan" id="pesan" class="materialize-textarea" ></textarea>
-                      <label for="pesan">Message</label>
-                    </div>
+                  <div class="input-field">
+                    <textarea name="pesan" id="pesan" class="materialize-textarea" ></textarea>
+                    <label for="pesan">Message</label>
+                  </div>
 
-                    <button type="submit" name="submit" class="waves-effect waves-light btn brand-bg pull-right mt-30">Send Message</button>
-                  </form>
-                </div><!-- /.col-md-8 -->
+                  <button type="submit" name="submit" class="waves-effect waves-light btn brand-bg pull-right mt-30">Send Message</button>
+                </form>
+              </div><!-- /.col-md-8 -->
 
+            </div><!-- /.row -->
+          </div>
+        </section>
+
+
+        <footer class="footer footer-four">
+          <div class="primary-footer p1-bg text-center">
+            <div class="container">
+
+              <a href="#top" class="page-scroll btn-floating btn-large pink back-top waves-effect waves-light" data-section="#top">
+                <i class="material-icons"></i>
+              </a>
+
+
+              <div class="row">
+                <div class="col-md-12">
+                  <div class="footer-logo">
+                    <img src="assets/img/logo.png" alt="">
+                  </div>
+
+
+
+                </div><!-- /.col-md-12 -->
               </div><!-- /.row -->
-            </div>
-          </section>
+
+              <hr class="mt-15">
 
 
-          <footer class="footer footer-four">
-            <div class="primary-footer p1-bg text-center">
-              <div class="container">
+              <ul class="social-link tt-animate ltr mt-20">
+                <?php foreach ($link as $li) {
+                  ?>
+                  <li><a href="<?php echo $li->facebook;?>"><i class="fa fa-facebook"></i></a></li>
+                  <li><a href="<?php echo $li->twitter;?>"><i class="fa fa-twitter"></i></a></li>
+                  <li><a href="<?php echo $li->instagram;?>"><i class="fa fa-instagram"></i></a></li>
+                <?php }?>
+              </ul>
 
-                <a href="#top" class="page-scroll btn-floating btn-large pink back-top waves-effect waves-light" data-section="#top">
-                  <i class="material-icons"></i>
-                </a>
+            </div><!-- /.container -->
+          </div><!-- /.primary-footer -->
 
-
-                <div class="row">
-                  <div class="col-md-12">
-                    <div class="footer-logo">
-                      <img src="assets/img/logo.png" alt="">
-                    </div>
-
-                    
-                    
-                  </div><!-- /.col-md-12 -->
-                </div><!-- /.row -->
-
-                <hr class="mt-15">
+          <div class="secondary-footer p2-bg">
+            <div class="container text-center">
+              <span class="copy-text">Copyright © <?php echo date("Y"); ?> <a href="#">Garuda Informatics</a> &nbsp;  | &nbsp;  All Rights Reserved &nbsp;  | &nbsp;  Designed By <a href="#">Garuda Informatics</a></span>
+            </div><!-- /.container -->
+          </div><!-- /.secondary-footer -->
+        </footer>
 
 
-                <ul class="social-link tt-animate ltr mt-20">
-                  <?php foreach ($link as $li) {
-                    ?>
-                    <li><a href="<?php echo $li->facebook;?>"><i class="fa fa-facebook"></i></a></li>
-                    <li><a href="<?php echo $li->twitter;?>"><i class="fa fa-twitter"></i></a></li>
-                    <li><a href="<?php echo $li->instagram;?>"><i class="fa fa-instagram"></i></a></li>
-                  <?php }?>
-                </ul>
 
-              </div><!-- /.container -->
-            </div><!-- /.primary-footer -->
-
-            <div class="secondary-footer p2-bg">
-              <div class="container text-center">
-                <span class="copy-text">Copyright © <?php echo date("Y"); ?> <a href="#">Garuda Informatics</a> &nbsp;  | &nbsp;  All Rights Reserved &nbsp;  | &nbsp;  Designed By <a href="#">Garuda Informatics</a></span>
-              </div><!-- /.container -->
-            </div><!-- /.secondary-footer -->
-          </footer>
-          
-          
-
-          <!-- Preloader -->
-          <div id="preloader">
-            <div class="preloader-position"> 
-              <img src="<?php echo base_url(); ?>assets/home/img/logo-colored.png" alt="logo" >
-              <div class="progress">
-                <div class="indeterminate"></div>
-              </div>
+        <!-- Preloader -->
+        <div id="preloader">
+          <div class="preloader-position"> 
+            <img src="<?php echo base_url(); ?>assets/home/img/logo-colored.png" alt="logo" >
+            <div class="progress">
+              <div class="indeterminate"></div>
             </div>
           </div>
-          <!-- End Preloader -->
+        </div>
+        <!-- End Preloader -->
 
-        </body>
+      </body>
 
-        <!-- jQuery -->
+      <!-- jQuery -->
 
-        <script src="<?php echo base_url(); ?>assets/dist/js/lightbox.min.js"></script>
-        <script src="<?php echo base_url(); ?>assets/home/js/jquery-2.1.3.min.js"></script>
-        <script src="<?php echo base_url(); ?>assets/home/bootstrap/js/bootstrap.min.js"></script>
-        <script src="<?php echo base_url(); ?>assets/home/materialize/js/materialize.min.js"></script>
-        <script src="<?php echo base_url(); ?>assets/home/js/jquery.easing.min.js"></script>
-        <script src="<?php echo base_url(); ?>assets/home/js/jquery.sticky.min.js"></script>
-        <script src="<?php echo base_url(); ?>assets/home/js/smoothscroll.min.js"></script>
-        <script src="<?php echo base_url(); ?>assets/home/js/imagesloaded.js"></script>
-        <script src="<?php echo base_url(); ?>assets/home/js/jquery.stellar.min.js"></script>
-        <script src="<?php echo base_url(); ?>assets/home/js/jquery.inview.min.js"></script>
-        <script src="<?php echo base_url(); ?>assets/home/js/jquery.shuffle.min.js"></script>
-        <script src="<?php echo base_url(); ?>assets/home/js/menuzord.js"></script>
-        <script src="<?php echo base_url(); ?>assets/home/js/bootstrap-tabcollapse.min.js"></script>
-        <script src="<?php echo base_url(); ?>assets/home/magnific-popup/jquery.magnific-popup.min.js"></script>
-        <script src="<?php echo base_url(); ?>assets/home/js/scripts.js"></script>
-        
+      <script src="<?php echo base_url(); ?>assets/dist/js/lightbox.min.js"></script>
+      <script src="<?php echo base_url(); ?>assets/home/js/jquery-2.1.3.min.js"></script>
+      <script src="<?php echo base_url(); ?>assets/home/bootstrap/js/bootstrap.min.js"></script>
+      <script src="<?php echo base_url(); ?>assets/home/materialize/js/materialize.min.js"></script>
+      <script src="<?php echo base_url(); ?>assets/home/js/jquery.easing.min.js"></script>
+      <script src="<?php echo base_url(); ?>assets/home/js/jquery.sticky.min.js"></script>
+      <script src="<?php echo base_url(); ?>assets/home/js/smoothscroll.min.js"></script>
+      <script src="<?php echo base_url(); ?>assets/home/js/imagesloaded.js"></script>
+      <script src="<?php echo base_url(); ?>assets/home/js/jquery.stellar.min.js"></script>
+      <script src="<?php echo base_url(); ?>assets/home/js/jquery.inview.min.js"></script>
+      <script src="<?php echo base_url(); ?>assets/home/js/jquery.shuffle.min.js"></script>
+      <script src="<?php echo base_url(); ?>assets/home/js/menuzord.js"></script>
+      <script src="<?php echo base_url(); ?>assets/home/js/bootstrap-tabcollapse.min.js"></script>
+      <script src="<?php echo base_url(); ?>assets/home/magnific-popup/jquery.magnific-popup.min.js"></script>
+      <script src="<?php echo base_url(); ?>assets/home/js/scripts.js"></script>
 
-        </html>
+
+      </html>

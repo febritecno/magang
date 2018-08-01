@@ -76,6 +76,8 @@ $route['login-history'] = "user/loginHistoy";
 $route['login-history/(:num)'] = "user/loginHistoy/$1";
 $route['login-history/(:num)/(:num)'] = "user/loginHistoy/$1/$2";
 
+$route['register'] = "login/register";
+$route['send_register'] = "login/send_register";
 $route['forgotPassword'] = "login/forgotPassword";
 $route['resetPasswordUser'] = "login/resetPasswordUser";
 $route['resetPasswordConfirmUser'] = "login/resetPasswordConfirmUser";
@@ -85,6 +87,14 @@ $route['createPasswordUser'] = "login/createPasswordUser";
 
 $route['addProduct'] = "product/addProduct";
 $route['editProduct/(:num)'] = "product/editProduct/$1";
+
+$route['add_progress/(:num)/(:num)'] = "order/add_progress/$1/$1";
+$route['send_progress'] = "order/send_progress";
+$route['delete/(:num)'] = "order/delete/$1";
+
+$route['progress/(:num)'] = "client/progress/$1";
+$route['new_order'] = "client/new_order";
+$route['delete/(:num)'] = "client/delete/$1";
 
 $route['send'] = "home/send";
 

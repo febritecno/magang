@@ -18,7 +18,7 @@
               <!-- small box -->
               <div class="small-box bg-red">
                 <div class="inner">
-                  <h3><?php echo $all; ?></h3>
+                  <h3><?php echo $start; ?></h3>
                   <p>PROJECTS START</p>
                 </div>
                 <div class="icon">
@@ -30,7 +30,7 @@
               <!-- small box -->
               <div class="small-box bg-yellow">
                 <div class="inner">
-                  <h3><?php echo $web; ?></h3>
+                  <h3><?php echo $inprogress; ?></h3>
                   <p>IN PROGRESS</p>
                 </div>
                 <div class="icon">
@@ -42,7 +42,7 @@
               <!-- small box -->
               <div class="small-box bg-green">
                 <div class="inner">
-                  <h3><?php echo $desktop; ?></h3>
+                  <h3><?php echo $finish; ?></h3>
                   <p>PROJECTS FINISH</p>
                 </div>
                 <div class="icon">
@@ -61,7 +61,7 @@
 
             <div class="info-box-content">
               <span class="info-box-text">total order</span>
-              <span class="info-box-number">41,410</span>
+              <span class="info-box-number"><?php echo $total; ?></span>
               <div class="progress">
                 <div class="progress-bar" style="width: 0%"></div>
               </div>
@@ -81,7 +81,7 @@
 
             <div class="info-box-content">
               <span class="info-box-text">unpaid order</span>
-              <span class="info-box-number">41,410</span>
+              <span class="info-box-number"><?php echo $unpaid; ?></span>
 
               <div class="progress">
                 <div class="progress-bar" style="width: 0%"></div>
@@ -102,7 +102,7 @@
 
             <div class="info-box-content">
               <span class="info-box-text">non cash order</span>
-              <span class="info-box-number">41,410</span>
+              <span class="info-box-number"><?php echo $noncash; ?></span>
 
               <div class="progress">
                 <div class="progress-bar" style="width: 0%"></div>
@@ -123,7 +123,7 @@
 
             <div class="info-box-content">
               <span class="info-box-text">paid order</span>
-              <span class="info-box-number">41,410</span>
+              <span class="info-box-number"><?php echo $paid; ?></span>
 
               <div class="progress">
                 <div class="progress-bar" style="width: 0%"></div>

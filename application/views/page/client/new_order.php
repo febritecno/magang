@@ -27,7 +27,7 @@
                                     <div class="form-group">
                                         <label for="title">Project Title</label>
                                         <input type="text" class="form-control required" value="" id="headline" name="title" maxlength="128">
-                                        <input type="hidden" value="" name="id" id="id" />
+                                        <input type="hidden" value="" name="userId" id="userId" />
                                     </div>
                                     
                                 </div>
@@ -38,10 +38,10 @@
                                     <div class="form-group">
                                         <label for="type">Project Type</label>
                                         <select class="form-control" name="type" value="">
-                                            <option>Select Service Type</option>
-                                            <option>Websites</option>
-                                            <option>Desktop Apps</option>
-                                            <option>Mobile Apps</option>
+                                            <option>Select Type Service</option>
+                                            <option value="">Websites</option>
+                                            <option value="">Desktop Apps</option>
+                                            <option value="">Mobile Apps</option>
                                         </select>
                                          
                                     
@@ -54,8 +54,9 @@
                                 <div class="col-md-8">                                
                                     <div class="form-group">
                                         <label for="upload">Upload Detail Project</label><br/>
-                                        <small>rar/zip/docx file</small>
-                                        <input type="file" name="upload">
+                                        <input type="file" name="upload"><br/>
+                                        <small>*Tolong upload detail project berbentuk proposal/makalah</small><br/>
+                                        <small><i><b>*format rar/zip/docx</b></i></small>
                                     
                                     </div>
                                     
@@ -72,7 +73,7 @@
                                           <div class="input-group-addon">
                                             <i class="fa fa-calendar"></i>
                                           </div>
-                                          <input type="text" class="form-control pull-right" id="deadline">
+                                          <input type="text" class="form-control pull-right" id="date">
                                         </div>
                                         
                                       </div>

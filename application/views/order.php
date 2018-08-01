@@ -36,11 +36,12 @@
                       <th>Project Title</th>
                       <th>Type</th>
                       <th>Document</th>
-                      <th>Progress</th>
-                      <th>Status</th>
+                      <th>Client</th>
                       <th>Phone</th>
                       <th>Email</th>
                       <th>Deadline</th> 
+                      <th>Status</th>
+                      <th>Progress</th>
                       <th>Timeline</th>
                       <th class="text-center">Actions</th>
                     </tr>
@@ -54,51 +55,53 @@
                       <td><?php echo wordwrap($record->title,15,"<br>\n",TRUE);?></td>
                       <td><?php echo wordwrap($record->type,15,"<br>\n",TRUE);?></td>
                       <td><a href="<?php echo $record->file ;?>"><span class="fa fa-download"> Download</span></a></td>
-                      
-                      <td><?php
-                          switch ($s=$record->progress) {
-                            case "START":
-                              echo "<a href='' class='badge label-danger'>".$s."</a>";
-                              break;
-                            case "IN PROGRESS":
-                              echo "<a href='' class='label label-warning'>".$s."</a>";
-                              break;
-                            case "FINISH":
-                              echo "<a href='' class='badge label-success'>".$s."</a>";
-                              break;
-
-                            default:
-                               echo "<a href='' class='badge label-default'>Error !!</a>";
-                              break;
-                          }
-                        ?>
-                      <td><?php
+                      <td><?php echo wordwrap($record->name,10,"<br>\n",TRUE)?></td>
+                      <td><?php echo $record->mobile;?></td>
+                      <td><?php echo $record->email ;?></td>
+                      <td><?php echo $record->deadline ;?></td>
+                       <td>  
+                      <?php
                           switch ($s=$record->status) {
                             case "UNPAID":
-                              echo "<a href='' class='badge label-danger'>".$s."</a>";
+                              echo "<a data-target='#myModal' data-toggle='modal' class='badge label-danger'>".$s."</a>";
                               break;
 
                             case "NON CASH":
-                              echo "<a href='' class='badge label-info'>".$s."</a>";
+                              echo "<a data-target='#myModal' data-toggle='modal' class='label label-warning'>".$s."</a>";
                               break;
 
                             case "PAID":
-                              echo "<a href='' class='badge label-success'>".$s."</a>";
+                              echo "<a data-target='#myModal' data-toggle='modal' class='badge label-success'>".$s."</a>";
                               break;
 
                             default:
-                               echo "<a href='' class='badge label-default'>Error !!</a>";
+                               echo "<a data-target='#myModal' data-toggle='modal' class='badge label-default'>Error !!</a>";
                               break;
                           }
                         ?>
                       </td>
-                      <td><?php echo $record->mobile."<br/>(".wordwrap($record->name,10,"<br>\n",TRUE).")" ;?></td>
-                      <td><?php echo $record->email ;?></td>
-                      <td><?php echo $record->deadline ;?></td>
-                      <td><a href="<?php base_url()?>timeline/<?php echo $record->timelineId;?>/<?php echo $record->userId;?>/<?php echo $record->id;?>" class="badge label-info">Add Progress</a></td>
+                      <td><?php
+                          switch ($s=$record->progress) {
+                            case "START":
+                              echo "<a data-target='#myModal' data-toggle='modal' class='badge label-danger'>".$s."</a>";
+                              break;
+                            case "IN PROGRESS":
+                              echo "<a data-target='#myModal' data-toggle='modal' class='label label-warning'>".$s."</a>";
+                              break;
+                            case "FINISH":
+                              echo "<a data-target='#myModal' data-toggle='modal'' class='badge label-success'>".$s."</a>";
+                              break;
+
+                            default:
+                               echo "<a data-target='#myModal' data-toggle='modal' class='badge label-default'>Error !!</a>";
+                              break;
+                          }
+                        ?>
+                      </td>
+                      <td><a href="<?php echo base_url().'add_progress/'.$record->id.'/'.$record->userId;?>" class="badge label-info">Add Progress</a></td>
 
                       <td class="text-center"> 
-                          <a class="btn btn-sm btn-danger" href="<?php echo base_url().'order/delete/'.$record->id;?>" title="Delete"><i class="fa fa-trash"></i></a>
+                          <a class="btn btn-sm btn-danger" href="<?php echo base_url().'delete/'.$record->id;?>" title="Delete"><i class="fa fa-trash"></i></a>
                       </td>
                     </tr>
                     <?php
@@ -145,9 +148,67 @@
             </div>
 
 
+
+               <!-- Modal -->
+              <div class="modal fade" id="myModal" tabindex="-1" role="dialog" 
+                 aria-labelledby="myModalLabel" aria-hidden="true">
+                 <div class="modal-dialog">
+                    <div class="modal-content">
+                       
+                       <div class="modal-header">
+                          <button type="button" class="close" 
+                             data-dismiss="modal" aria-hidden="true">
+                                &times;
+                          </button>
+                          <h4 class="modal-title" id="myModalLabel">
+                             SET PROPERTY
+                          </h4>
+                       </div>
+
+                      <div class="modal-body">
+
+                        <form action="" method="POST" role="form">
+                            <input type="hidden" name="id" value="">
+                            <div class="input-group">
+                               <span class="input-group-addon" style="background-color: #eeeeee82;border-color: #d6d6d6;border-bottom-left-radius: 15px;border-top-left-radius: 15px;border-top-style: dashed;"><b>STATUS</b></span>
+                               <select class="form-control" name="status" value="">
+                                            <option value="UNPAID">UNPAID</option>
+                                            <option value="NON CASH">NON CASH</option>
+                                            <option value="PAID">PAID</option>
+                                </select>
+                            </div>
+                            <br>
+
+                            <div class="input-group">
+                               <span class="input-group-addon" style="background-color: #eeeeee82;border-color: #d6d6d6;border-bottom-left-radius: 15px;border-top-left-radius: 15px;border-top-style: dashed;"><b>PROGRESS</b></span>
+                               <select class="form-control" name="progress" value="">
+                                            <option value="START">START</option>
+                                            <option value="IN PROGRESS">IN PROGRESS</option>
+                                            <option value="FINISH">FINISH</option>
+                                </select>
+                            </div>
+                            <br>
+
+                      </div>
+
+                       <div class="modal-footer">
+                          <button type="submit" class="btn btn-primary">
+                             Change
+                          </button>
+                       </div>
+                       </form>
+                    
+                    </div><!-- /.modal-content -->
+              </div><!-- /.modal -->
+
+
+
             </div>
         </div>
     </section>
+
+
+
 
 </div>
 <script type="text/javascript" src="<?php echo base_url(); ?>assets/js/common.js" charset="utf-8"></script>

@@ -35,7 +35,7 @@ class BaseController extends CI_Controller {
 		$isLoggedIn = $this->session->userdata ( 'isLoggedIn' );
 		
 		if (! isset ( $isLoggedIn ) || $isLoggedIn != TRUE) {
-			redirect ( 'login' );
+			redirect('login');
 		} else {
 			$this->role = $this->session->userdata ( 'role' );
 			$this->vendorId = $this->session->userdata ( 'userId' );
@@ -64,13 +64,13 @@ class BaseController extends CI_Controller {
 	/**
 	 * This function is used to check the access
 	 */
-	function isTicketter() {
-		if ($this->role != ROLE_ADMIN || $this->role != ROLE_SYSTEM) {
-			return true;
-		} else {
-			return false;
-		}
-	}
+	// function isTicketter() {
+	// 	if ($this->role != ROLE_ADMIN || $this->role != ROLE_SYSTEM) {
+	// 		return true;
+	// 	} else {
+	// 		return false;
+	// 	}
+	// }
 	
 	/**
 	 * This function is used to load the set of views
@@ -83,6 +83,7 @@ class BaseController extends CI_Controller {
 		$this->load->view ( 'includes/footer' );
 	}
 	
+
 	/**
 	 * This function is used to logged out user from system
 	 */

@@ -18,6 +18,8 @@
     <script src="<?php echo base_url(); ?>assets/plugins/input-mask/jquery.inputmask.js" type="text/javascript"></script>
     <script src="<?php echo base_url(); ?>assets/plugins/input-mask/jquery.inputmask.date.extensions.js" type="text/javascript"></script>
     <script src="<?php echo base_url(); ?>assets/plugins/input-mask/jquery.inputmask.extensions.js" type="text/javascript"></script>
+    <script src="<?php echo base_url(); ?>assets/plugins/input-mask/jquery.inputmask.date.extensions.js" type="text/javascript"></script>
+    <script src="<?php echo base_url(); ?>assets/plugins/ckeditor/ckeditor.js" type="text/javascript"></script>
 
     <script type="text/javascript">
         var windowURL = window.location.href;
@@ -28,6 +30,7 @@
         var y= $('a[href="'+windowURL+'"]');
             y.addClass('active');
             y.parent().addClass('active');
+
 /*    $(function() {
             setTimeout(function() {
                   location.reload();
@@ -36,12 +39,13 @@
 
 
     $(function () {
-        $('#deadline').inputmask('yyyy/mm/dd', { 'placeholder': 'yyyy/mm/dd' })
+        $('#date').inputmask('yyyy/mm/dd', { 'placeholder': 'yyyy/mm/dd' })
     })
 
+    </script>
 
-
-
+    <script type="text/javascript">
+         CKEDITOR.replace('text');
     </script>
   </body>
 </html>

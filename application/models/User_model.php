@@ -266,7 +266,7 @@ class User_model extends CI_Model
     }
 
 
-    //information kontak & links
+    //information kontak & links MODEL
 
     function links()
     {

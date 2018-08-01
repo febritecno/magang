@@ -76,16 +76,29 @@ class Product_model extends CI_Model
     return TRUE; 
     }
 
-    function count($data)
+    // count widget model
+
+    function count($tbl,$row,$data)
     {
-        $this->db->where('catagory',$data);
-        $query = $this->db->get('tbl_product');
+        $this->db->where($row,$data);
+        $query = $this->db->get($tbl);
         return $query->num_rows();
     }
 
-    function countall()
+    function countall($tbl)
     {
-        $query = $this->db->get('tbl_product');
+        $query = $this->db->get($tbl);
+        return $query->num_rows();
+    }
+
+    //count widget client
+
+    function client_count($data)
+    {
+        $user = $this->session->userdata('userId');
+        $this->db->where('userId',$user);
+        $this->db->where('progress',$data);
+        $query = $this->db->get('tbl_order');
         return $query->num_rows();
     }
 

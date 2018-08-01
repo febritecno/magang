@@ -10,7 +10,7 @@
         <div class="row">
             <div class="col-xs-12 text-right">
                 <div class="form-group">
-                  <a class="btn btn-danger" href="<?php echo base_url()?>client/new_order"><i class="fa fa-edit"></i> Order Project</a>
+                  <a class="btn btn-success" href="<?php echo base_url()?>new_order"><i class="fa fa-edit"></i> Order Project</a>
                 </div>
             </div>
         </div>
@@ -18,7 +18,7 @@
             <div class="col-xs-12">
               <div class="box">
                 <div class="box-header">
-                    <h3 class="box-title">My Project Service</h3>
+                    <h3 class="box-title">Project List</h3>
                     <div class="box-tools">
                         <form action="<?php echo base_url() ?>client/" method="POST" id="searchList">
                             <div class="input-group">
@@ -36,10 +36,7 @@
                       <th>Project Title</th>
                       <th>Type</th>
                       <th>Document</th>
-                      <th>Progress</th>
                       <th>Status</th>
-                      <th>Phone</th>
-                      <th>Email</th>
                       <th>Deadline</th>
                       <th class="text-center">Actions</th>
                     </tr>
@@ -53,50 +50,34 @@
                       <td><?php echo wordwrap($record->title,15,"<br>\n",TRUE);?></td>
                       <td><?php echo wordwrap($record->type,15,"<br>\n",TRUE);?></td>
                       <td><a href="<?php echo $record->file ;?>"><span class="fa fa-download"> Download</span></a></td>
-                      
-                      <td><?php
-                          switch ($s=$record->progress) {
-                            case "START":
-                              echo "<a href='' class='badge label-danger'>".$s."</a>";
-                              break;
-                            case "DEVELOPMENT":
-                              echo "<a href='' class='label label-warning'>".$s."</a>";
-                              break;
-                            case "FINISH":
-                              echo "<a href='' class='badge label-success'>".$s."</a>";
-                              break;
-
-                            default:
-                               echo "<a href='' class='badge label-default'>Error !!</a>";
-                              break;
-                          }
-                        ?>
+                    
                       <td><?php
                           switch ($s=$record->status) {
                             case "UNPAID":
-                              echo "<a href='' class='badge label-danger'>".$s."</a>";
+                              echo "<span class='badge label-danger'>".$s."</span>";
                               break;
 
                             case "NON CASH":
-                              echo "<a href='' class='badge label-info'>".$s."</a>";
+                              echo "<span class='label label-warning'>".$s."</span>";
                               break;
 
-                            case "CASH":
-                              echo "<a href='' class='badge label-success'>".$s."</a>";
+                            case "PAID":
+                              echo "<span class='badge label-success'>".$s."</span>";
                               break;
 
                             default:
-                               echo "<a href='' class='badge label-default'>Error !!</a>";
+                               echo "<span class='badge label-default'>Error !!</span>";
                               break;
                           }
                         ?>
                       </td>
-                      <td><?php echo $record->mobile."<br/>(".wordwrap($record->name,10,"<br>\n",TRUE).")" ;?></td>
-                      <td><?php echo $record->email ;?></td>
                       <td><?php echo $record->deadline ;?></td>
 
                       <td class="text-center"> 
-                          <a class="btn btn-sm bg-aqua" href="<?php echo base_url().'client/progress'?>" title="view"><i class=""></i> View Progress</a>
+                          <a class="btn btn-sm bg-aqua" href="<?php echo base_url().'progress/'.$record->id;?>" title="View Progress Detail"><i class="fa fa-eye"></i></a>
+
+                          <a class="btn btn-sm btn-danger" href="<?php echo base_url().'delete/'.$record->id?>" title="Delete Order"><i class="fa fa-trash"></i></a>
+
                       </td>
                     </tr>
                     <?php

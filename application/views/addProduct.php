@@ -2,8 +2,8 @@
     <!-- Content Header (Page header) -->
     <section class="content-header">
       <h1>
-        <i class="fa fa-archive"></i> Product Management
-        <small>Add / Edit User</small>
+        <i class="fa fa-archive"></i> Products Management
+        <small>Add Product</small>
       </h1>
     </section>
     
@@ -16,7 +16,7 @@
                 
                 <div class="box box-primary">
                     <div class="box-header">
-                        <h3 class="box-title">Enter Product Details</h3>
+                        <h3 class="box-title"><small>Enter Product Details</small></h3>
                     </div><!-- /.box-header -->
                     <!-- form start -->
                     <?php $this->load->helper("form"); ?>
@@ -34,8 +34,8 @@
                               <div class="row">
                                 <div class="col-md-8">                                
                                     <div class="form-group">
-                                        <label for="desc">Describe Product</label>
-                                        <textarea type="textarea" rows="5" class="form-control required" value="<?php echo set_value('desc'); ?>" id="desc" name="desc" maxlength="500"></textarea>
+                                        <label for="desc">Description Product</label>
+                                        <textarea type="textarea" rows="5" class="form-control required" value="<?php echo set_value('desc'); ?>" id="desc" name="desc" maxlength="200"></textarea>
                                     </div>
                                     
                                 </div>
@@ -56,10 +56,10 @@
                                     <div class="form-group">
                                         <label for="catagory">Catagory</label>
                                         <select class="form-control required" id="catagory" name="catagory" value="<?php echo set_value('catagory'); ?>">
-                                            <option value="0">Select Catagory</option>
-                                                    <option value="Websites">Websites</option>
-                                                    <option value="Desktop App">Desktop App</option>
-                                                     <option value="Mobile App">Mobile App</option>
+                                            <option value="0">----- -- select -- ----</option>
+                                                <option value="Websites">Websites</option>
+                                                <option value="Desktop App">Desktop App</option>
+                                                <option value="Mobile App">Mobile App</option>
                                         </select>
                                     </div>
                                 </div>    

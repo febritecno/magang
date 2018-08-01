@@ -7,12 +7,17 @@ class Order extends BaseController
     /**
      * This is default constructor of the class
      */
+
+    var $view;
+
     public function __construct()
     {
         parent::__construct();
         $this->isLoggedIn();
         $this->load->model('order_model');
+        $this->load->library('form_validation');
         $this->load->database();
+        $this->view = "page/order/";
             
     }
     
@@ -45,7 +50,65 @@ class Order extends BaseController
         
         }
     }
-    
+
+    public function add_progress()
+    {
+        if($this->isadmin()== TRUE)
+        {
+            $this->loadThis();
+        }
+        else
+        {
+            $data['orderid']=$this->uri->segment(2);
+            $data['userid']= $this->uri->segment(3);
+            $this->global['pageTitle'] = 'Garuda Informatics : Add Progress To Timeline Project';
+            $this->loadViews($this->view."add_progress", $this->global, $data, NULL);
+        }
+    }
+
+    public function send_progress()
+    {
+        if($this->isadmin()== TRUE)
+        {
+            $this->loadThis();
+        }
+        else
+        {
+            $this->form_validation->set_rules('title','Progress Title','trim|required|max_length[128]');
+            $this->form_validation->set_rules('text','Description Progress','trim|required|max_length[1000]');
+            $this->form_validation->set_rules('badge','Select Badge For Progress','trim|required');
+            $this->form_validation->set_rules('orderid','OrderId','trim|required');
+            $this->form_validation->set_rules('userid','UserId','trim|required');
+
+            if($this->form_validation->run() == FALSE)
+            {
+                $this->session->set_flashdata('error', 'System Failure');
+            }else{
+
+            $title = $this->input->post('title');
+            $text = $this->input->post('text');
+            $badge = $this->input->post('badge');
+            $orderid = $this->input->post('orderid');
+            $userid = $this->input->post('userid');   
+
+            $save = array('title' => $title,'text' => $text,'badge' => $badge,'orderId' => $orderid,'userId' => $userid);
+            $this->db->insert('tbl_timeline',$save);
+
+                if($save > 0)
+                {
+                    $this->session->set_flashdata('success', 'Progress Added Successfully');
+                }
+                else
+                {
+                    $this->session->set_flashdata('error', 'Opps...., Error');
+                }
+
+            redirect('order');
+                
+            }
+            
+        }
+    }
 
     public function delete()
     {
@@ -55,10 +118,10 @@ class Order extends BaseController
         }
         else
         {
-            $id = $this->uri->segment(3);
+            $id = $this->uri->segment(2);
             $this->db->where('id',$id);
             $query = $this->db->get('tbl_order')->row();
-            if($query) 
+            if($query > 0) 
             {
                 $this->session->set_flashdata('success', 'Delete Operation Successfully');
                 $this->order_model->delete($id);
@@ -69,6 +132,7 @@ class Order extends BaseController
             }
         }
     }
+
 }
 
 ?>

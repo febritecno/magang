@@ -22,14 +22,22 @@ class User extends BaseController
 
         $this->load->model('product_model');
 
-        //admin&system
-        $data['web'] = $this->product_model->count('Websites');
-        $data['desktop'] = $this->product_model->count('Desktop App');
-        $data['mobile'] = $this->product_model->count('Mobile App');
-        $data['all'] = $this->product_model->countall();
+        //admin&system for product
+        $data['web'] = $this->product_model->count('tbl_product','catagory','Websites');
+        $data['desktop'] = $this->product_model->count('tbl_product','catagory','Desktop App');
+        $data['mobile'] = $this->product_model->count('tbl_product','catagory','Mobile App');
+        $data['all'] = $this->product_model->countall('tbl_product');
+
+        //admin&system for order
+        $data['unpaid'] = $this->product_model->count('tbl_order','status','UNPAID');
+        $data['noncash'] = $this->product_model->count('tbl_order','status','NON CASH');
+        $data['paid'] = $this->product_model->count('tbl_order','status','PAID');
+        $data['total'] = $this->product_model->countall('tbl_order');
 
         //client
-        $anu['yo'] = "anu";
+        $data['start'] = $this->product_model->client_count('START');
+        $data['inprogress'] = $this->product_model->client_count('IN PROGRESS');
+        $data['finish'] = $this->product_model->client_count('FINISH');
 
 
         $this->global['pageTitle'] = 'Garuda Informatics : Dashboard';

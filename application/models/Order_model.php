@@ -4,7 +4,7 @@ class Order_model extends CI_Model
 {
     function ordercount($searchText = '')
     {
-       $this->db->select('BaseTbl.id, BaseTbl.title, BaseTbl.type, BaseTbl.file, BaseTbl.progress ,BaseTbl.status,BaseTbl.deadline,BaseTbl.timelineId,User.mobile,User.name,User.email,User.userId');
+       $this->db->select('BaseTbl.id, BaseTbl.title, BaseTbl.type, BaseTbl.file, BaseTbl.progress ,BaseTbl.status,BaseTbl.deadline,BaseTbl.timestamp,User.mobile,User.name,User.email,User.userId');
         $this->db->join('tbl_users as User','User.userId=BaseTbl.userId','left');
         $this->db->from('tbl_order as BaseTbl');
         if(!empty($searchText)) {
@@ -15,6 +15,7 @@ class Order_model extends CI_Model
                             OR User.email  LIKE '%".$searchText."%'
                             OR BaseTbl.status  LIKE '%".$searchText."%'
                             OR BaseTbl.progress  LIKE '%".$searchText."%'
+                            OR BaseTbl.timestamp  LIKE '%".$searchText."%'
                             OR BaseTbl.deadline  LIKE '%".$searchText."%')";
             $this->db->where($likeCriteria);
         }
@@ -28,7 +29,7 @@ class Order_model extends CI_Model
 
     function orderlisting($searchText = '', $page, $segment)
     {
-        $this->db->select('BaseTbl.id, BaseTbl.title, BaseTbl.type, BaseTbl.file, BaseTbl.progress ,BaseTbl.status,BaseTbl.deadline,BaseTbl.timelineId,User.mobile,User.name,User.email,User.userId');
+        $this->db->select('BaseTbl.id, BaseTbl.title, BaseTbl.type, BaseTbl.file, BaseTbl.progress ,BaseTbl.status,BaseTbl.deadline,BaseTbl.timestamp,User.mobile,User.name,User.email,User.userId');
         $this->db->join('tbl_users as User','User.userId=BaseTbl.userId','left');
         $this->db->from('tbl_order as BaseTbl');
         if(!empty($searchText)) {
@@ -39,6 +40,7 @@ class Order_model extends CI_Model
                             OR User.email  LIKE '%".$searchText."%'
                             OR BaseTbl.status  LIKE '%".$searchText."%'
                             OR BaseTbl.progress  LIKE '%".$searchText."%'
+                            OR BaseTbl.timestamp  LIKE '%".$searchText."%'
                             OR BaseTbl.deadline  LIKE '%".$searchText."%')";
             $this->db->where($likeCriteria);
         }
