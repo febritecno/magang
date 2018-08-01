@@ -1,4 +1,8 @@
+
 <?php 
+
+//SHOWEL membuat php bisa async / realtime/ tidak langsung lebih cepat tentunya, webrtc untuk video call
+
 $progress='';
 $t_order='';
 $type='';
@@ -28,8 +32,8 @@ foreach ($pro as $p) {
       </h4>
        <ul>
         <small>
-        <li>Type Project : <b><?php echo $type ?></b></li>
-        <li>Estimate End Of Project : <b><?php echo $deadline?></b></li>
+        <li><i>type :</i> <b><?php echo $type ?></b></li>
+        <li><i>estimate end of project :</i> <b><?php echo $deadline?></b></li>
         </small>
       </ul>
     </div>
@@ -51,7 +55,7 @@ foreach ($pro as $p) {
             break;
           
           default:
-            echo '<span class="bg-black">DATA NOT FOUND, PLEASE SELECT OTHER DATA</span>';
+            echo '<span class="bg-black">DATA NOT FOUND</span>';
             break;
         }
 
@@ -72,7 +76,7 @@ foreach ($pro as $p) {
 
           <h3 class="timeline-header"><a href="#" title=" <?php echo $p->email?>" data-container="body" data-toggle="popover" data-placement="bottom" data-content="Phone : <?php echo $p->mobile?>"><?php echo $p->name?></a> <?php echo $p->t_title ?></h3>
 
-          <div class="timeline-body">
+          <div class="timeline-body" style="word-wrap: break-word;word-break: break-word;">
             <?php echo $p->text?>
           </div>
         </div>

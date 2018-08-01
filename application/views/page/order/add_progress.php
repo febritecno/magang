@@ -32,14 +32,16 @@
                     <div class="row">
                         <div class="col-md-8">                                
                             <div class="form-group">
-                                <label for="text">Badge Symbol Progress</label>
+                                <label for="text">Badge Progress</label>
                                  <select class="form-control" id="badge" name="badge">
                                     <option value="">----- -- select -- -----</option>
-                                    <option value="fa fa-archive bg-blue">Information</option>
-                                    <option value="fa fa-archive bg-red">Bug / Error / Unpaid</option>
-                                    <option value="fa fa-archive bg-black">Fix Bug / Error</option>
-                                    <option value="fa fa-archive bg-aqua">Module Has Clear</option>
-                                    <option value="fa fa-archive bg-green">Project Finish</option>
+                                    <option value="fa fa-commenting bg-blue">Information</option>
+                                    <option value="fa fa-calendar bg-blue">Planing</option>
+                                    <option value="fa fa-ban bg-red">Bug / Error</option>
+                                    <option value="fa fa-calendar-times-o bg-red">Unpaid</option>
+                                    <option value="fa fa-code bg-black">Fix Bug Module</option>
+                                    <option value="fa fa-check-square-o bg-aqua">Module Has Clear</option>
+                                    <option value="fa fa-flag-checkered bg-green">Project Finish</option>
                                 </select>
                             </div>
 

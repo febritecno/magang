@@ -64,6 +64,7 @@ class client_model extends CI_Model
         
         $this->db->from('tbl_timeline as t');
         $this->db->where('t.orderId',$segment);
+        $this->db->order_by("timestamp", "DESC");
         $query=$this->db->get();
         $result = $query->result();
         return $result;

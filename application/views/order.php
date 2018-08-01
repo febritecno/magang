@@ -99,8 +99,8 @@
                         ?>
                       </td>
                        <!-- memasang payload by orderid dan user id yang telah login(pembuat progress) sebagai data untuk mengambil progreess di client-->
-                      <td><a href="<?php echo base_url().'add_progress/'.$record->id.'/'.$this->session->userdata('userId');?>" class="badge label-info">+</a>
-                          <a href="<?php echo base_url().'progress/'.$record->id;?>" class="badge label-success"><i class="fa fa-eye"></i></a>
+                      <td><a href="<?php echo base_url().'add_progress/'.$record->id.'/'.$this->session->userdata('userId');?>" title="Add Progress To This Project" class="badge label-info">+</a>
+                          <a href="<?php echo base_url().'progress/'.$record->id;?>" title="View Progress Detail" class="badge label-success"><i class="fa fa-eye"></i></a>
                       </td>
 
                       <td class="text-center"> 
