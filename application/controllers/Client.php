@@ -56,7 +56,7 @@ class Client extends BaseController
     public function progress()
     {
 
-        if($this->isAdmin() == TRUE)
+        if($this->isAdmin() == FALSE && $this->isAdmin() == TRUE)
         {
             $this->loadThis();
         }
