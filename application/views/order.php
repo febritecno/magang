@@ -63,19 +63,19 @@
                       <?php
                           switch ($s=$record->status) {
                             case "UNPAID":
-                              echo "<a data-target='#myModal' data-toggle='modal' class='badge label-danger'>".$s."</a>";
+                              echo "<a href='".base_url()."update_status/".$record->id."' class='badge label-danger'>".$s."</a>";
                               break;
 
                             case "NON CASH":
-                              echo "<a data-target='#myModal' data-toggle='modal' class='label label-warning'>".$s."</a>";
+                              echo "<a href='".base_url()."update_status/".$record->id."' class='label label-warning'>".$s."</a>";
                               break;
 
                             case "PAID":
-                              echo "<a data-target='#myModal' data-toggle='modal' class='badge label-success'>".$s."</a>";
+                              echo "<a href='".base_url()."update_status/".$record->id."' class='badge label-success'>".$s."</a>";
                               break;
 
                             default:
-                               echo "<a data-target='#myModal' data-toggle='modal' class='badge label-default'>Error !!</a>";
+                               echo "<a href='".base_url()."update_status/".$record->id."' class='badge label-default'>Error !!</a>";
                               break;
                           }
                         ?>
@@ -83,17 +83,17 @@
                       <td><?php
                           switch ($s=$record->progress) {
                             case "START":
-                              echo "<a data-target='#myModal' data-toggle='modal' class='badge label-danger'>".$s."</a>";
+                              echo "<a href='".base_url()."update_status/".$record->id."' class='badge label-danger'>".$s."</a>";
                               break;
                             case "IN PROGRESS":
-                              echo "<a data-target='#myModal' data-toggle='modal' class='label label-warning'>".$s."</a>";
+                              echo "<a href='".base_url()."update_status/".$record->id."' class='label label-warning'>".$s."</a>";
                               break;
                             case "FINISH":
-                              echo "<a data-target='#myModal' data-toggle='modal'' class='badge label-success'>".$s."</a>";
+                              echo "<a href='".base_url()."update_status/".$record->id."' class='badge label-success'>".$s."</a>";
                               break;
 
                             default:
-                               echo "<a data-target='#myModal' data-toggle='modal' class='badge label-default'>Error !!</a>";
+                               echo "<a href='".base_url()."update_status/".$record->id."' class='badge label-default'>Error !!</a>";
                               break;
                           }
                         ?>
@@ -104,13 +104,13 @@
                       </td>
 
                       <td class="text-center"> 
-                          <a class="btn btn-sm btn-danger" href="<?php echo base_url().'order/admin_delete/'.$record->id;?>" title="Delete"><i class="fa fa-trash"></i></a>
+                          <a class="btn btn-sm btn-danger" href="<?php echo base_url().'admin_delete/'.$record->id;?>" title="Delete"><i class="fa fa-trash"></i></a>
                       </td>
                     </tr>
-                    <?php
-                        }
+                  <?php 
+                      }
                     }
-                    ?>
+                  ?>
                   </table>
                   
                     </div><!-- /.box-body -->
@@ -149,62 +149,6 @@
                     </div>
                 </div>
             </div>
-
-
-
-               <!-- Modal -->
-              <div class="modal fade" id="myModal" tabindex="-1" role="dialog" 
-                 aria-labelledby="myModalLabel" aria-hidden="true">
-                 <div class="modal-dialog">
-                    <div class="modal-content">
-                       
-                       <div class="modal-header">
-                          <button type="button" class="close" 
-                             data-dismiss="modal" aria-hidden="true">
-                                &times;
-                          </button>
-                          <h4 class="modal-title" id="myModalLabel">
-                             SET PROPERTY
-                          </h4>
-                       </div>
-
-                      <div class="modal-body">
-
-                        <form action="" method="POST" role="form">
-                            <input type="hidden" name="id" value="">
-                            <div class="input-group">
-                               <span class="input-group-addon" style="background-color: #eeeeee82;border-color: #d6d6d6;border-bottom-left-radius: 15px;border-top-left-radius: 15px;border-top-style: dashed;"><b>STATUS</b></span>
-                               <select class="form-control" name="status" value="">
-                                            <option value="UNPAID">UNPAID</option>
-                                            <option value="NON CASH">NON CASH</option>
-                                            <option value="PAID">PAID</option>
-                                </select>
-                            </div>
-                            <br>
-
-                            <div class="input-group">
-                               <span class="input-group-addon" style="background-color: #eeeeee82;border-color: #d6d6d6;border-bottom-left-radius: 15px;border-top-left-radius: 15px;border-top-style: dashed;"><b>PROGRESS</b></span>
-                               <select class="form-control" name="progress" value="">
-                                            <option value="START">START</option>
-                                            <option value="IN PROGRESS">IN PROGRESS</option>
-                                            <option value="FINISH">FINISH</option>
-                                </select>
-                            </div>
-                            <br>
-
-                      </div>
-
-                       <div class="modal-footer">
-                          <button type="submit" class="btn btn-primary">
-                             Change
-                          </button>
-                       </div>
-                       </form>
-                    
-                    </div><!-- /.modal-content -->
-              </div><!-- /.modal -->
-
-
 
             </div>
         </div>

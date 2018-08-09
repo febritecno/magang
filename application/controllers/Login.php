@@ -9,6 +9,7 @@ class Login extends CI_Controller
     {
         parent::__construct();
         $this->load->model('login_model');
+        $this->load->library('recaptcha');
     }
 
     /**
@@ -141,23 +142,35 @@ class Login extends CI_Controller
                 $email = $this->security->xss_clean($this->input->post('email'));
                 $mobile = $this->security->xss_clean($this->input->post('phone'));
                 $password = $this->input->post('password');
+                $captcha_answer = $this->input->post('g-recaptcha-response');
+                
+                $response = $this->recaptcha->verifyResponse($captcha_answer);
+
+                if ($response['success']) {
                 
                 $userInfo = array('name'=> $name,'email'=>$email, 'roleId'=>3,
                                     'mobile'=>$mobile,'password'=>getHashedPassword($password),'createdBy'=>1, 'createdDtm'=>date('Y-m-d H:i:s'));
                 
                 $this->load->model('user_model');
                 $result = $this->user_model->addNewUser($userInfo);
-                
+
                 if($result > 0)
                 {
-                    $this->session->set_flashdata('success', 'Thanks for registration, <br/>please check your email for activation your account');
+                    $this->session->set_flashdata('success', 'Thanks for registration, <br/> You can login in here');
                 }
                 else
                 {
-                    $this->session->set_flashdata('error', 'Registration Failed');
+                    $this->session->set_flashdata('error', 'Registration fail');
                 }
                 
-                redirect('register');
+                } else {
+
+                    redirect('login');
+
+                }
+
+                 redirect('login');
+
             }
     }  
     

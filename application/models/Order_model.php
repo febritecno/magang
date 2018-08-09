@@ -67,6 +67,25 @@ class Order_model extends CI_Model
         // MAX(id) + 1
     }
 
+    function update_status($id,$data)
+    {
+        $this->db->where('id',$id);
+        $this->db->update('tbl_order',$data);
+        
+        return TRUE;
+    }
+
+
+    function update_status_info($id)
+    {
+        $this->db->select('id,title,type,progress, status');
+        $this->db->from('tbl_order');
+        $this->db->where('id', $id);
+        $query = $this->db->get();
+        
+        return $query->result();
+    }
+
 
 }
 

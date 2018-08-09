@@ -130,12 +130,13 @@
             </li>
             <?php }?>
              <li class="header">COMUNICATION</li>
+             <!--
              <li class="treeview">
-              <a href="<?php echo base_url(); ?>">
+              <a href="">
                 <i class="fa fa fa-comment-o"></i>
                 <span>Chat</span>
               </a>
-            </li>
+            </li>-->
             <?php
             if($role == ROLE_SYSTEM || $role == ROLE_ADMIN)
             {

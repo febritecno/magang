@@ -111,6 +111,57 @@ class Order extends BaseController
         }
     }
 
+    public function update_status($id = NULL)
+    {
+        if($this->isAdmin() == TRUE)
+        {
+            $this->loadThis();
+        }
+        else
+        {
+            if($id == null)
+            {
+                redirect('order');
+            }
+            
+            $data['records'] = $this->order_model->update_status_info($id);
+            $this->global['pageTitle'] = 'Garuda Informatics : Set Status';
+            
+            $this->loadViews("editOrder", $this->global, $data, NULL);
+        }
+    }
+
+    public function send_update_status()
+    {
+        if($this->isAdmin() == TRUE)
+        {
+            $this->loadThis();
+        }
+        else
+        {
+            $id=$this->input->post('id');
+            $status=$this->input->post('status');
+            $progress=$this->input->post('progress');
+
+            $send= array('progress'=>$progress,'status'=>$status);
+            
+            $result = $this->order_model->update_status($id,$send);
+            
+            if($result > 0)
+                {
+                    $this->session->set_flashdata('success', 'Successfully, updating data');
+                }
+                else
+                {
+                    $this->session->set_flashdata('error', 'Error');
+                }
+                
+            redirect('order');
+        }
+    }
+
+
+
     public function admin_delete()
     {
         if($this->isAdmin() == TRUE)

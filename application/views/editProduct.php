@@ -84,7 +84,7 @@
                                             <div class="form-group">
                                                 <label for="catagory">Catagory</label>
                                                 <select class="form-control required" id="catagory" name="catagory" value="<?php echo $catagory ?>">
-                                                    <option value="<?php echo $catagory ?>">--- default value ---</option>
+                                                    <option value="<?php echo $catagory ?>">DEFAULT - <?php echo $catagory ?></option>
                                                     <option value="Websites">Websites</option>
                                                     <option value="Desktop App">Desktop App</option>
                                                     <option value="Mobile App">Mobile App</option>

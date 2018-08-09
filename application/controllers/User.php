@@ -279,6 +279,25 @@ class User extends BaseController
         }
     }
     
+
+    function enableUser()
+    {
+        if($this->isAdmin() == TRUE)
+        {
+            echo(json_encode(array('status'=>'access')));
+        }
+        else
+        {
+            $userId = $this->input->post('userId');
+            $userInfo = array('isDeleted'=>0,'updatedBy'=>$this->vendorId, 'updatedDtm'=>date('Y-m-d H:i:s'));
+            
+            $result = $this->user_model->deleteUser($userId, $userInfo);
+            
+            if ($result > 0) { echo(json_encode(array('status'=>TRUE))); }
+            else { echo(json_encode(array('status'=>FALSE))); }
+        }
+    }
+
     /**
      * This function is used to load the change password screen
      */
@@ -340,6 +359,21 @@ class User extends BaseController
         $this->global['pageTitle'] = 'Garuda Informatics : 404 - Page Not Found';
         
         $this->loadViews("404", $this->global, NULL, NULL);
+    }
+
+
+    function delete_permanent()
+    {
+            if($this->isAdmin() == TRUE)
+            {
+                $this->loadThis();
+            }
+            else
+            {
+                $id = $this->uri->segment(2);
+                      $this->user_model->delete($id);
+                      redirect('userListing');
+            }
     }
 
     /**

@@ -56,7 +56,7 @@
                                     <div class="form-group">
                                         <label for="catagory">Catagory</label>
                                         <select class="form-control required" id="catagory" name="catagory" value="<?php echo set_value('catagory'); ?>">
-                                            <option value="0">----- -- select -- ----</option>
+                                            <option value="0">----- -- SELECT -- ----</option>
                                                 <option value="Websites">Websites</option>
                                                 <option value="Desktop App">Desktop App</option>
                                                 <option value="Mobile App">Mobile App</option>

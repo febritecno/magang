@@ -64,7 +64,7 @@
             <input type="password" class="form-control" placeholder="Confirm Password" name="repassword" required />
             <span class="glyphicon glyphicon-retweet form-control-feedback"></span>
           </div>
-         
+         <?php echo $this->recaptcha->render(); ?>
 
           <div class="row">
             <br/>

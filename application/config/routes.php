@@ -66,8 +66,14 @@ $route['addNew'] = "user/addNew";
 $route['addNewUser'] = "user/addNewUser";
 $route['editOld'] = "user/editOld";
 $route['editOld/(:num)'] = "user/editOld/$1";
+$route['delete_permanent/(:num)'] = "user/delete_permanent/$1";
 $route['editUser'] = "user/editUser";
 $route['deleteUser'] = "user/deleteUser";
+$route['enableUser'] = "user/enableUser";
+
+$route['send_update_status'] = "order/send_update_status";
+$route['update_status/(:num)'] = "order/update_status/$1";
+
 $route['loadChangePass'] = "user/loadChangePass";
 $route['changePassword'] = "user/changePassword";
 $route['pageNotFound'] = "user/pageNotFound";
@@ -91,6 +97,7 @@ $route['editProduct/(:num)'] = "product/editProduct/$1";
 
 $route['add_progress/(:num)/(:num)'] = "order/add_progress/$1/$1";
 $route['send_progress'] = "order/send_progress";
+$route['admin_delete/(:num)'] = "order/admin_delete/$1";
 
 $route['progress/(:num)'] = "client/progress/$1";
 $route['new_order'] = "client/new_order";
