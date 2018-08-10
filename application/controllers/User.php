@@ -258,28 +258,10 @@ class User extends BaseController
 
 
     /**
-     * This function is used to delete the user using userId
+     * This function is enable and disable user by userId
      * @return boolean $result : TRUE / FALSE
      */
-    function deleteUser()
-    {
-        if($this->isAdmin() == TRUE)
-        {
-            echo(json_encode(array('status'=>'access')));
-        }
-        else
-        {
-            $userId = $this->input->post('userId');
-            $userInfo = array('isDeleted'=>1,'updatedBy'=>$this->vendorId, 'updatedDtm'=>date('Y-m-d H:i:s'));
-            
-            $result = $this->user_model->deleteUser($userId, $userInfo);
-            
-            if ($result > 0) { echo(json_encode(array('status'=>TRUE))); }
-            else { echo(json_encode(array('status'=>FALSE))); }
-        }
-    }
-    
-
+  
     function enableUser()
     {
         if($this->isAdmin() == TRUE)
@@ -298,6 +280,26 @@ class User extends BaseController
         }
     }
 
+    function deleteUser()
+    {
+        if($this->isAdmin() == TRUE)
+        {
+            echo(json_encode(array('status'=>'access')));
+        }
+        else
+        {
+            $userId = $this->input->post('userId');
+            $userInfo = array('isDeleted'=>1,'updatedBy'=>$this->vendorId, 'updatedDtm'=>date('Y-m-d H:i:s'));
+            
+            $result = $this->user_model->deleteUser($userId, $userInfo);
+            
+            if ($result > 0) { echo(json_encode(array('status'=>TRUE))); }
+            else { echo(json_encode(array('status'=>FALSE))); }
+        }
+    }
+
+
+//
     /**
      * This function is used to load the change password screen
      */

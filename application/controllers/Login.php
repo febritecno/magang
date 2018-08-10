@@ -126,12 +126,12 @@ class Login extends CI_Controller
     {
         $this->load->library('form_validation');
             
-            $this->form_validation->set_rules('name','Full Name','trim|required|max_length[128]');
-            $this->form_validation->set_rules('email','Email','trim|required|valid_email|max_length[128]');
-            $this->form_validation->set_rules('phone','Mobile Number','required|min_length[10]');
-            $this->form_validation->set_rules('password','Password','required|max_length[20]');
-            $this->form_validation->set_rules('repassword','Confirm Password','trim|required|matches[password]|max_length[20]');
-            
+        $this->form_validation->set_rules('name','Full Name','trim|required|max_length[128]');
+        $this->form_validation->set_rules('email','Email','trim|required|valid_email|max_length[128]');
+        $this->form_validation->set_rules('phone','Mobile Number','required|min_length[10]');
+        $this->form_validation->set_rules('password','Password','required|max_length[20]');
+        $this->form_validation->set_rules('repassword','Confirm Password','trim|required|matches[password]|max_length[20]');
+        
             if($this->form_validation->run() == FALSE)
             {
                 $this->register();
@@ -144,9 +144,11 @@ class Login extends CI_Controller
                 $password = $this->input->post('password');
                 $captcha_answer = $this->input->post('g-recaptcha-response');
                 
+                //handle recaptcha
                 $response = $this->recaptcha->verifyResponse($captcha_answer);
 
-                if ($response['success']) {
+                if($response['success']) 
+                {
                 
                 $userInfo = array('name'=> $name,'email'=>$email, 'roleId'=>3,
                                     'mobile'=>$mobile,'password'=>getHashedPassword($password),'createdBy'=>1, 'createdDtm'=>date('Y-m-d H:i:s'));
@@ -154,25 +156,21 @@ class Login extends CI_Controller
                 $this->load->model('user_model');
                 $result = $this->user_model->addNewUser($userInfo);
 
-                if($result > 0)
-                {
-                    $this->session->set_flashdata('success', 'Thanks for registration, <br/> You can login in here');
-                }
-                else
-                {
-                    $this->session->set_flashdata('error', 'Registration fail');
-                }
+                    if($result > 0)
+                    {
+                        $this->session->set_flashdata('success', 'Thanks for registration, <br/> You can login in here');
+                    }
+                    else
+                    {
+                        $this->session->set_flashdata('error', 'Registration fail');
+                    }
                 
-                } else {
-
-                    redirect('login');
-
                 }
 
-                 redirect('login');
+            redirect('login');
 
             }
-    }  
+    } 
     
     /**
      * This function used to generate reset password request link
