@@ -17,6 +17,14 @@
          folder instead of downloading all of them to reduce the load. -->
     <link href="<?php echo base_url(); ?>assets/dist/css/skins/_all-skins.min.css" rel="stylesheet" type="text/css" />
     <link href="<?php echo base_url(); ?>assets/plugins/ckeditor/styles.js" rel="stylesheet" type="text/css" />
+   
+    <link type="text/css" rel="stylesheet" media="all" href="<?php echo base_url();?>assets/chat_module/css/chat.css" />
+    <link type="text/css" rel="stylesheet" media="all" href="<?php echo base_url();?>assets/chat_module/css/screen.css" />
+ 
+    <!--[if lte IE 7]>
+    <link type="text/css" rel="stylesheet" media="all" href="css/screen_ie.css" />
+    <![endif]-->
+
     <style>
     	.error{
     		color:red;
@@ -131,7 +139,7 @@
             <?php }?>
              <li class="header">COMUNICATION</li>
              <li class="treeview">
-              <a href="">
+             <a href="<?php echo base_url(); ?>chat">
                 <i class="fa fa fa-comment-o"></i>
                 <span>Chat</span>
               </a>

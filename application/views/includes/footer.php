@@ -20,6 +20,8 @@
     <script src="<?php echo base_url(); ?>assets/plugins/input-mask/jquery.inputmask.extensions.js" type="text/javascript"></script>
     <script src="<?php echo base_url(); ?>assets/plugins/input-mask/jquery.inputmask.date.extensions.js" type="text/javascript"></script>
     <script src="<?php echo base_url(); ?>assets/plugins/ckeditor/ckeditor.js" type="text/javascript"></script>
+    
+    <script type="text/javascript" src="<?php echo base_url();?>assets/chat_module/js/chat.js"></script>
 
     <script type="text/javascript">
         var windowURL = window.location.href;

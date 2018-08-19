@@ -82,9 +82,10 @@
                             </div>
                         </div><!-- /.box-body -->
     
-                        <div class="box-footer">
+                         <div class="box-footer">
                             <input type="submit" class="btn btn-primary" value="Submit" />
                             <input type="reset" class="btn btn-default" value="Reset" />
+                            <div class="col-md-12 text-right"><a href="<?php base_url()?>/userListing" class="btn btn-warning" title="back to order"><span class="fa fa-arrow-left"></span></a></div>
                         </div>
                     </form>
                 </div>

@@ -60,6 +60,7 @@
 
                     <div class="box-footer">
                         <input type="submit" class="btn btn-primary" value="Submit" />
+                        <a href="<?php base_url()?>/order" class="btn btn-warning" title="back to order"><span class="fa fa-arrow-left"></span></a>
                     </div>
                 </form>
             </div>

@@ -96,8 +96,8 @@
                                 
                                 <div class="box-footer">
                                     <input type="submit" class="btn btn-primary" value="Submit" />
-                                    <a class="btn btn-success" href="<?php echo base_url()?>Product">Back</a>
-
+                                    <input type="reset" class="btn btn-default" value="Reset" />
+                                    <div class="col-md-12 text-right"><a href="<?php base_url()?>/product" class="btn btn-warning" title="back to order"><span class="fa fa-arrow-left"></span></a></div>
                                 </div>
                             </form>
                         </div>
