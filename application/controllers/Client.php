@@ -120,10 +120,6 @@ class Client extends BaseController
                     $file_data = $file;
                     }
 
-                }else{
-                    $this->session->set_flashdata('error', 'Error Upload! please check your upload document');
-                }
-
                 $userId=$this->input->post('userId');
                 $title=$this->input->post('title');
                 $type=$this->input->post('type');
@@ -135,7 +131,12 @@ class Client extends BaseController
                 $result=$this->client_model->save_order($save);
 
                 $this->session->set_flashdata('success', 'Send data has successfully');
-                
+
+            }else{
+        
+                $this->session->set_flashdata('error', 'Error Upload! please check your upload document');
+            }
+            
                 redirect('client');
         }
     }

@@ -7,12 +7,19 @@ class Link extends BaseController
     /**
      * This is default constructor of the class
      */
+
+
+    var $view;
+
     public function __construct()
     {
         parent::__construct();
         $this->isLoggedIn();
         $this->load->model('User_model');
         $this->load->library('form_validation');
+
+         //global variable untuk folder page
+        $this->view= "page/admin/link/";
             
     }
     
@@ -32,7 +39,7 @@ class Link extends BaseController
             $data['links'] = $this->User_model->links();
             
             $this->global['pageTitle'] = 'Garuda Informatics : Social Link';
-            $this->loadViews("links", $this->global,$data, NULL);
+            $this->loadViews($this->view."links", $this->global,$data, NULL);
         
         }
     }

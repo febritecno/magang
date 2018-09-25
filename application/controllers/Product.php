@@ -7,6 +7,9 @@ class Product extends BaseController
     /**
      * This is default constructor of the class
      */
+
+    var $view;
+
     public function __construct()
     {
         parent::__construct();
@@ -14,6 +17,9 @@ class Product extends BaseController
         $this->load->model('product_model');
         $this->load->library('form_validation');
         $this->load->database();
+
+         //global variable untuk folder page
+        $this->view= "page/admin/product/";
             
     }
     
@@ -42,7 +48,7 @@ class Product extends BaseController
 
             $this->global['pageTitle'] = 'Garuda Informatics : Product Listing';
 
-            $this->loadViews("product", $this->global, $data, NULL);
+            $this->loadViews($this->view."product", $this->global, $data, NULL);
         
         }
     }
@@ -60,7 +66,7 @@ class Product extends BaseController
  
             $this->global['pageTitle'] = 'Garuda Informatics : Add New Product';
 
-            $this->loadViews("addProduct", $this->global,null, NULL);
+            $this->loadViews($this->view."addProduct", $this->global,null, NULL);
         }
     }
 
@@ -105,9 +111,7 @@ class Product extends BaseController
                 foreach ($fileData as $file) { //describe all info upload
                     $file_data = $file;
                     }
-                }else{
-                    $this->session->set_flashdata('error', 'Error Upload! please check image');
-                }
+                
 //------------------------------
 
                 $name = ucwords(strtolower($this->security->xss_clean($this->input->post('name'))));
@@ -130,6 +134,11 @@ class Product extends BaseController
                     $this->session->set_flashdata('error', 'Post Product creation failed');
                 }
                 
+            }else{
+                    $this->session->set_flashdata('error', 'Post Product creation failed');
+                    $this->session->set_flashdata('error', 'Error Upload! please check image');
+                }
+
                 redirect('addProduct');
             }
         }
@@ -153,7 +162,7 @@ class Product extends BaseController
             
             $this->global['pageTitle'] = 'Garuda Informatics : Add New Product';
 
-            $this->loadViews("editProduct", $this->global, $data, NULL);
+            $this->loadViews($this->view."editProduct", $this->global, $data, NULL);
         }
     }
 

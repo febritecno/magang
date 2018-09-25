@@ -7,6 +7,9 @@ class Inbox extends BaseController
     /**
      * This is default constructor of the class
      */
+
+    var $view;
+
     public function __construct()
     {
         parent::__construct();
@@ -14,6 +17,7 @@ class Inbox extends BaseController
         $this->load->model('inbox_model');
         $this->load->database();
             
+        $this->view="/page/admin/inbox/";
     }
     
     /**
@@ -41,7 +45,7 @@ class Inbox extends BaseController
 
             $this->global['pageTitle'] = 'Garuda Informatics : Inbox Listing';
 
-            $this->loadViews("inbox", $this->global, $data, NULL);
+            $this->loadViews($this->view."inbox", $this->global, $data, NULL);
         
         }
     }

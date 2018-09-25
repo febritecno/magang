@@ -17,7 +17,7 @@ class Order extends BaseController
         $this->load->model('order_model');
         $this->load->library('form_validation');
         $this->load->database();
-        $this->view = "page/order/";
+        $this->view = "page/admin/order/";
             
     }
     
@@ -46,7 +46,7 @@ class Order extends BaseController
 
             $this->global['pageTitle'] = 'Garuda Informatics : order Listing';
 
-            $this->loadViews("order", $this->global, $data, NULL);
+            $this->loadViews($this->view."order", $this->global, $data, NULL);
         
         }
     }
@@ -127,7 +127,7 @@ class Order extends BaseController
             $data['records'] = $this->order_model->update_status_info($id);
             $this->global['pageTitle'] = 'Garuda Informatics : Set Status';
             
-            $this->loadViews("editOrder", $this->global, $data, NULL);
+            $this->loadViews($this->view."editOrder", $this->global, $data, NULL);
         }
     }
 

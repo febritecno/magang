@@ -2,7 +2,7 @@
     <section class="content-header">
       <h1>
         Access Denied
-        <small>Please Login Member!!</small>
+        <small>Please Login To Access</small>
       </h1>
     </section>
     <section class="content">

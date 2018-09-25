@@ -59,12 +59,9 @@ class Order_model extends CI_Model
         $this->db->where('id',$id);
         $this->db->delete('tbl_order');
 
-        //mengurutkan autoincrement cuma update
-        // $this->db->query('SET  @num := 0');
-        // $this->db->query('UPDATE tbl_order SET id = @num := (@num+1)');
-        // $this->db->query('ALTER TABLE tbl_order AUTO_INCREMENT =1');
-        //untuk jika ditambah bisa urut
-        // MAX(id) + 1
+
+        $this->db->where('tbl_timeline.orderId',$id); // delete timeline berdasarkan  orderId
+        $this->db->delete('tbl_timeline');
     }
 
     function update_status($id,$data)

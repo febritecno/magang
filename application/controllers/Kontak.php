@@ -8,6 +8,9 @@ class Kontak extends BaseController
     /**
      * This is default constructor of the class
      */
+
+    var $view;
+
     public function __construct()
     {
         parent::__construct();
@@ -15,6 +18,8 @@ class Kontak extends BaseController
         $this->load->model('User_model');
         $this->load->library('form_validation');
             
+        //global variable untuk folder page
+        $this->view= "page/admin/kontak/";
     }
     
     /**
@@ -33,7 +38,7 @@ class Kontak extends BaseController
             $data['kontak'] = $this->User_model->kontak();
             
             $this->global['pageTitle'] = 'Garuda Informatics : Contacts';
-            $this->loadViews("Contact", $this->global,$data, NULL);
+            $this->loadViews($this->view."contact", $this->global,$data, NULL);
         
         }
     }

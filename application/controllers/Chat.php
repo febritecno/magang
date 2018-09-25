@@ -7,6 +7,8 @@ class Chat extends BaseController
     /**
      * This is default constructor of the class
      */
+
+    var $view;
     public function __construct()
     {
         parent::__construct();
@@ -15,6 +17,7 @@ class Chat extends BaseController
         $this->load->library('ci_chat');
         @session_start();
 
+        $this->view="/page/chat/";
     }
     
     /**
@@ -38,7 +41,7 @@ class Chat extends BaseController
             $data['records']= $admin;
             $data['client_records']= $client;
             $this->global['pageTitle'] = 'Garuda Informatics : Chat Listing';
-            $this->loadViews("chat", $this->global,$data, NULL);
+            $this->loadViews($this->view."chat", $this->global,$data, NULL);
         
         }
     }

@@ -7,11 +7,14 @@ class User extends BaseController
     /**
      * This is default constructor of the class
      */
+
+    var $view;
     public function __construct()
     {
         parent::__construct();
         $this->load->model('user_model');
-        $this->isLoggedIn();   
+        $this->isLoggedIn();  
+        $this->view = "/page/admin/user/"; 
     }
     
     /**
@@ -42,7 +45,7 @@ class User extends BaseController
 
         $this->global['pageTitle'] = 'Garuda Informatics : Dashboard';
         
-        $this->loadViews("dashboard", $this->global, $data , NULL);
+        $this->loadViews($this->view."dashboard", $this->global, $data , NULL);
 
     }
     
@@ -70,7 +73,7 @@ class User extends BaseController
             
             $this->global['pageTitle'] = 'Garuda Informatics : User Listing';
             
-            $this->loadViews("users", $this->global, $data, NULL);
+            $this->loadViews($this->view."users", $this->global, $data, NULL);
         }
     }
 
@@ -90,7 +93,7 @@ class User extends BaseController
             
             $this->global['pageTitle'] = 'Garuda Informatics : Add New User';
 
-            $this->loadViews("addNew", $this->global, $data, NULL);
+            $this->loadViews($this->view."addNew", $this->global, $data, NULL);
         }
     }
 
@@ -187,7 +190,7 @@ class User extends BaseController
             
             $this->global['pageTitle'] = 'Garuda Informatics : Edit User';
             
-            $this->loadViews("editOld", $this->global, $data, NULL);
+            $this->loadViews($this->view."editOld", $this->global, $data, NULL);
         }
     }
     
@@ -307,7 +310,7 @@ class User extends BaseController
     {
         $this->global['pageTitle'] = 'Garuda Informatics : Change Password';
         
-        $this->loadViews("changePassword", $this->global, NULL, NULL);
+        $this->loadViews($this->view."changePassword", $this->global, NULL, NULL);
     }
     
     
@@ -412,7 +415,7 @@ class User extends BaseController
             
             $this->global['pageTitle'] = 'Garuda Informatics : User Login History';
             
-            $this->loadViews("loginHistory", $this->global, $data, NULL);
+            $this->loadViews($this->view."loginHistory", $this->global, $data, NULL);
         }        
     }
 }

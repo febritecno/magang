@@ -38,9 +38,9 @@
                                     <option value="fa fa-commenting bg-blue">Information</option>
                                     <option value="fa fa-calendar bg-blue">Planing</option>
                                     <option value="fa fa-ban bg-red">Bug / Error</option>
-                                    <option value="fa fa-calendar-times-o bg-red">Unpaid</option>
+                                    <option value="fa fa-calendar bg-red">Unpaid</option>
                                     <option value="fa fa-code bg-black">Fix Bug Module</option>
-                                    <option value="fa fa-check-square-o bg-aqua">Module Has Clear</option>
+                                    <option value="fa fa-check bg-aqua">Module Has Clear</option>
                                     <option value="fa fa-flag-checkered bg-green">Project Finish</option>
                                 </select>
                             </div>
