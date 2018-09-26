@@ -1,19 +1,14 @@
 # Garuda Informatics Project Manager
 
-Codeigniter 3
-PHP5
-adminlte
-mysql
+### Project from intern on Garuda Informatics Software House
 
-# Project from intern on Garuda Informatics Software House
-
-# how to use
+### how to use
   1. clone
   2. move to www or localhost
   3. import database.sql
   4. enjoy
  
-# more preview
+### more preview
 
 ![](https://github.com/febritecno/magang/blob/master/screenshot/Screenshot%20(122).png)
 
