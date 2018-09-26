@@ -1,9 +1,9 @@
 # Garuda Informatics Project Manager
 
-## Codeigniter 3
-## PHP5
-## adminlte
-## mysql
+Codeigniter 3
+PHP5
+adminlte
+mysql
 
 # Project from intern on Garuda Informatics Software House
 
@@ -13,7 +13,7 @@
   3. import database.sql
   4. enjoy
  
-# preview
+# more preview
 
 ![](https://github.com/febritecno/magang/blob/master/screenshot/Screenshot%20(122).png)
 
