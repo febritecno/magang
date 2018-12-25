@@ -7,6 +7,10 @@
   2. move to www or localhost
   3. import database.sql
   4. enjoy
+  
+  # landing page
+  
+  https://imgur.com/a/Dvi0iFX
  
 ### more preview
 
